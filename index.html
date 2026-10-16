@@ -11,7 +11,7 @@
   <!-- Google Fonts: Cormorant Garamond, Caveat, Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -20,7 +20,7 @@
     body {
       font-family: 'Montserrat', sans-serif;
       background-color: #171210;
-      color: #2D1E1B;
+      color: #211310;
       overflow-x: hidden;
     }
 
@@ -36,24 +36,24 @@
       font-style: italic;
     }
 
-    /* Золотое фольгирование для заголовка */
+    /* НАСЫЩЕННОЕ ЧЁТКОЕ ЗОЛОТОЕ ТИСНЕНИЕ С ВЫСОКОЙ ЧИТАЕМОСТЬЮ */
     .gold-foil-text {
-      background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+      background: linear-gradient(135deg, #5C3E0E 0%, #A37217 35%, #785210 65%, #4A3009 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0px 2px 8px rgba(186, 135, 34, 0.3));
+      filter: drop-shadow(0px 1px 2px rgba(45, 30, 27, 0.35));
     }
 
     .gold-foil-dark {
-      background: linear-gradient(135deg, #8A6421 0%, #D4AF37 50%, #7A5515 100%);
+      background: linear-gradient(135deg, #7A5315 0%, #D4AF37 50%, #593E10 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* ФОН С ТЕКСТУРОЙ И МАРМОРНЫМ ОТТЕНКОМ */
+    /* ФОН С ТЕКСТУРОЙ */
     .bg-wedding-texture {
       background-image: 
-        linear-gradient(to bottom, rgba(23, 18, 16, 0.88), rgba(23, 18, 16, 0.94)),
+        linear-gradient(to bottom, rgba(23, 18, 16, 0.88), rgba(23, 18, 16, 0.95)),
         url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80');
       background-size: cover;
       background-attachment: fixed;
@@ -64,26 +64,26 @@
     .molded-frame {
       position: relative;
       background: #FAF6F0;
-      border: 2px solid #D4AF37;
+      border: 2px solid #C49826;
       box-shadow: 
         0 0 0 4px #2D1E1B,
-        0 0 0 6px rgba(212, 175, 55, 0.6),
+        0 0 0 6px rgba(196, 152, 38, 0.7),
         0 20px 40px rgba(0, 0, 0, 0.5),
-        inset 0 0 20px rgba(212, 175, 55, 0.12);
+        inset 0 0 20px rgba(196, 152, 38, 0.15);
     }
 
     .molded-frame-dark {
       position: relative;
-      background: #251916;
+      background: #231613;
       border: 2px solid #D4AF37;
       box-shadow: 
         0 0 0 4px #100B09,
-        0 0 0 6px rgba(212, 175, 55, 0.5),
-        0 25px 50px rgba(0, 0, 0, 0.7),
-        inset 0 0 25px rgba(212, 175, 55, 0.15);
+        0 0 0 6px rgba(212, 175, 55, 0.6),
+        0 25px 50px rgba(0, 0, 0, 0.75),
+        inset 0 0 25px rgba(212, 175, 55, 0.18);
     }
 
-    /* Угловые виньетки (лепной декор) */
+    /* Угловые элементы лепнины */
     .corner-ornament {
       position: absolute;
       width: 28px;
@@ -91,12 +91,12 @@
       pointer-events: none;
       z-index: 10;
     }
-    .corner-tl { top: 6px; left: 6px; border-top: 2px solid #D4AF37; border-left: 2px solid #D4AF37; }
-    .corner-tr { top: 6px; right: 6px; border-top: 2px solid #D4AF37; border-right: 2px solid #D4AF37; }
-    .corner-bl { bottom: 6px; left: 6px; border-bottom: 2px solid #D4AF37; border-left: 2px solid #D4AF37; }
-    .corner-br { bottom: 6px; right: 6px; border-bottom: 2px solid #D4AF37; border-right: 2px solid #D4AF37; }
+    .corner-tl { top: 6px; left: 6px; border-top: 2px solid #B8860B; border-left: 2px solid #B8860B; }
+    .corner-tr { top: 6px; right: 6px; border-top: 2px solid #B8860B; border-right: 2px solid #B8860B; }
+    .corner-bl { bottom: 6px; left: 6px; border-bottom: 2px solid #B8860B; border-left: 2px solid #B8860B; }
+    .corner-br { bottom: 6px; right: 6px; border-bottom: 2px solid #B8860B; border-right: 2px solid #B8860B; }
 
-    /* Формы арок */
+    /* Арочные формы */
     .arch-shape {
       border-top-left-radius: 160px;
       border-top-right-radius: 160px;
@@ -107,11 +107,11 @@
       border-radius: 160px;
     }
 
-    /* 3D ПОЯВЛЕНИЕ ПЛАШЕК ПРИ ПРОКРУТКЕ И ОТКРЫТИИ */
     .perspective-container {
       perspective: 1200px;
     }
 
+    /* 3D ПОЯВЛЕНИЕ ПЛАШЕК */
     .molded-card-anim {
       opacity: 0;
       transform: translateY(60px) rotateX(15deg) scale(0.92);
@@ -151,13 +151,12 @@
       animation: sealPulse 2.6s infinite ease-in-out;
     }
 
-    /* ВРАЩЕНИЕ ПЛЕЕРА */
+    .spin-slow {
+      animation: spinDisc 8s linear infinite;
+    }
     @keyframes spinDisc {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
-    }
-    .spin-slow {
-      animation: spinDisc 8s linear infinite;
     }
   </style>
 </head>
@@ -166,37 +165,39 @@
   <!-- ================= 3D КОНВЕРТ С СУРГУЧНОЙ ПЕЧАТЬЮ ================= -->
   <div id="envelopeOverlay" class="fixed inset-0 z-50 bg-[#140E0C]/96 backdrop-blur-lg flex flex-col items-center justify-center p-4 transition-all duration-1000">
     
-    <div class="text-center text-amber-50 mb-8 space-y-2">
-      <div class="w-12 h-12 mx-auto rounded-full border border-amber-300/40 flex items-center justify-center mb-3 bg-amber-950/30">
+    <!-- Четкие контрастные заголовки конверта -->
+    <div class="text-center mb-8 space-y-2">
+      <div class="w-12 h-12 mx-auto rounded-full border border-amber-400/60 flex items-center justify-center mb-3 bg-amber-950/50 shadow-md">
         <i data-lucide="crown" class="w-6 h-6 text-amber-300"></i>
       </div>
-      <h2 class="font-serif-italic text-3xl sm:text-4xl text-amber-100 drop-shadow">
+      <h2 class="font-serif-italic text-3xl sm:text-4xl text-amber-100 font-bold drop-shadow-md">
         Чакыруу баракчасы
       </h2>
-      <p class="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-amber-200/80 font-light">
+      <p class="text-[11px] sm:text-xs uppercase tracking-[0.35em] text-amber-200 font-medium">
         ҮЙЛӨНҮҮ ТОЮНА ЧАКЫРУУ
       </p>
     </div>
 
     <!-- 3D Конверт -->
-    <div id="envelopeWrapper" class="perspective-container relative w-full max-w-xs h-64 bg-[#3B2923] rounded-2xl shadow-2xl border border-amber-400/40 flex items-center justify-center">
+    <div id="envelopeWrapper" class="perspective-container relative w-full max-w-xs h-64 bg-[#3B2923] rounded-2xl shadow-2xl border border-amber-400/50 flex items-center justify-center">
       
-      <!-- Верхний клапан конверта -->
-      <div id="envelopeFlap" class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#2D1E1B] rounded-t-2xl border-b border-amber-400/30 origin-top shadow-xl flex items-end justify-center pb-2" style="clip-path: polygon(0 0, 100% 0, 50% 100%);"></div>
+      <!-- Верхний клапан -->
+      <div id="envelopeFlap" class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#2D1E1B] rounded-t-2xl border-b border-amber-400/40 origin-top shadow-xl flex items-end justify-center pb-2" style="clip-path: polygon(0 0, 100% 0, 50% 100%);"></div>
 
       <!-- Кнопка "АЧУУ" -->
       <button id="openBtn" class="seal-transition seal-pulse z-40 relative w-24 h-24 rounded-full bg-gradient-to-br from-amber-200 via-amber-600 to-amber-950 border-2 border-amber-300 shadow-2xl flex items-center justify-center cursor-pointer active:scale-95">
-        <div class="w-18 h-18 rounded-full border border-amber-200/60 bg-amber-950/50 flex flex-col items-center justify-center text-amber-100">
+        <div class="w-18 h-18 rounded-full border border-amber-200/70 bg-amber-950/60 flex flex-col items-center justify-center text-amber-100">
           <i data-lucide="sparkles" class="w-4 h-4 mb-0.5 text-amber-200"></i>
           <span class="font-serif-title text-base font-bold tracking-widest uppercase">АЧУУ</span>
         </div>
       </button>
 
       <!-- Нижняя складка -->
-      <div class="absolute bottom-0 left-0 right-0 h-36 bg-[#4A342D] rounded-b-2xl pointer-events-none" style="clip-path: polygon(0 100%, 50% 28%, 100% 100%); border-top: 1px solid rgba(254,243,199,0.2);"></div>
+      <div class="absolute bottom-0 left-0 right-0 h-36 bg-[#4A342D] rounded-b-2xl pointer-events-none" style="clip-path: polygon(0 100%, 50% 28%, 100% 100%); border-top: 1px solid rgba(254,243,199,0.25);"></div>
     </div>
 
-    <p class="text-xs text-amber-200/90 font-light tracking-wide mt-8">
+    <!-- Четкая контрастная подсказка снизу -->
+    <p class="text-xs text-amber-100 font-medium tracking-wide mt-8 drop-shadow-sm">
       Чакырууну ачуу үчүн «АЧУУ» баскычын басыңыз
     </p>
   </div>
@@ -216,7 +217,7 @@
   <!-- ================= ОСНОВНОЙ КОНТЕНТ ================= -->
   <main class="perspective-container w-full max-w-sm mx-auto flex flex-col items-center space-y-10 text-center pt-2">
 
-    <!-- 1. ГЛАВНАЯ КАРТОЧКА (С лепным декором и грандиозными именами) -->
+    <!-- 1. ГЛАВНАЯ КАРТОЧКА -->
     <section class="molded-card-anim molded-frame arch-shape w-full p-8 flex flex-col items-center space-y-5 pt-10">
       
       <!-- Декоративные углы-лепнина -->
@@ -226,61 +227,60 @@
       <div class="corner-ornament corner-br"></div>
 
       <!-- Герб / Монограмма E & A -->
-      <div class="w-16 h-16 rounded-full border-2 border-amber-600/60 p-1 flex items-center justify-center bg-amber-900/5 shadow-inner my-1">
-        <div class="w-full h-full rounded-full border border-amber-600/40 flex items-center justify-center">
+      <div class="w-16 h-16 rounded-full border-2 border-amber-800/80 p-1 flex items-center justify-center bg-amber-900/10 shadow-inner my-1">
+        <div class="w-full h-full rounded-full border border-amber-800/50 flex items-center justify-center">
           <span class="font-serif-title text-xl font-bold gold-foil-dark">Э & А</span>
         </div>
       </div>
 
-      <span class="text-[10px] uppercase tracking-[0.4em] text-stone-600 font-semibold">Үйлөнүү үлпөтүнө чакыруу</span>
+      <span class="text-[11px] uppercase tracking-[0.38em] text-stone-800 font-bold">Үйлөнүү үлпөтүнө чакыруу</span>
       
-      <!-- ГРАНДИОЗНЫЙ ЗАГОЛОВОК ЭЛНУРУ & АЛИЯ -->
+      <!-- ЧЁТКИЙ ТЕМНО-ЗОЛОТОЙ ЗАГОЛОВОК ЭЛНУРУ & АЛИЯ -->
       <div class="py-2">
         <h1 class="font-serif-title text-5xl sm:text-6xl font-bold leading-none tracking-tight gold-foil-text">
           Элнуру
         </h1>
-        <div class="font-script text-4xl text-amber-800 my-1 font-normal">&</div>
+        <div class="font-script text-4xl text-amber-900 my-1 font-bold">&</div>
         <h1 class="font-serif-title text-5xl sm:text-6xl font-bold leading-none tracking-tight gold-foil-text">
           Алия
         </h1>
       </div>
 
-      <!-- Фото банер колец в лепной рамке -->
-      <div class="w-full h-44 rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-md relative my-2">
+      <!-- Фото банер колец -->
+      <div class="w-full h-44 rounded-2xl overflow-hidden border-2 border-amber-600/50 shadow-md relative my-2">
         <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Wedding Rings & Flowers" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
       </div>
 
-      <p class="font-serif-italic text-3xl text-[#2D1E1B]">
+      <p class="font-serif-italic text-3xl font-bold text-[#211310]">
         Урматтуу коноктор!
       </p>
 
-      <p class="text-xs text-stone-700 font-normal leading-relaxed tracking-wide uppercase px-2">
+      <p class="text-xs text-stone-900 font-semibold leading-relaxed tracking-wide uppercase px-2">
         Сиздерди уулубуз Элнуру менен келинибиз Алиянын үйлөнүү тойуна арналган салтанаттуу дасторконубузга кадырлуу конок болуп кетүүгө чакырабыз.
       </p>
     </section>
 
-    <!-- 2. БЛОК ДАТЫ И КАЛЕНДАРЯ (Темный лепной багет) -->
+    <!-- 2. БЛОК ДАТЫ И КАЛЕНДАРЯ -->
     <section class="molded-card-anim molded-frame-dark arch-full-shape w-full p-8 flex flex-col items-center space-y-6 pt-12 pb-12 text-stone-100">
       
-      <!-- Декоративные углы-лепнина -->
       <div class="corner-ornament corner-tl"></div>
       <div class="corner-ornament corner-tr"></div>
       <div class="corner-ornament corner-bl"></div>
       <div class="corner-ornament corner-br"></div>
 
-      <!-- Фото рук молодоженов с кольцами -->
-      <div class="w-24 h-24 rounded-full border-2 border-amber-300/60 p-1 shadow-2xl overflow-hidden mb-1">
+      <!-- Фото рук молодоженов -->
+      <div class="w-24 h-24 rounded-full border-2 border-amber-300/80 p-1 shadow-2xl overflow-hidden mb-1">
         <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=400&q=80" alt="Wedding Hands" class="w-full h-full object-cover rounded-full">
       </div>
 
-      <span class="font-serif-italic text-3xl text-amber-200">Өтүү күнү:</span>
+      <span class="font-serif-italic text-3xl font-bold text-amber-200">Өтүү күнү:</span>
 
-      <div class="uppercase tracking-[0.35em] text-xs text-amber-300/80 font-light">
+      <div class="uppercase tracking-[0.35em] text-xs text-amber-200 font-semibold">
         Н О Я Б Р Ь
       </div>
 
-      <!-- Календарный ряд с выделенным сердцем на 8 ноября -->
+      <!-- Календарный ряд -->
       <div class="flex items-center justify-center gap-3 text-lg font-serif-title tracking-wider my-1">
         <span class="text-stone-500">6</span>
         <span class="text-stone-400">7</span>
@@ -297,29 +297,29 @@
         <span class="text-stone-500">10</span>
       </div>
 
-      <div class="text-xs font-light text-stone-300 tracking-widest uppercase">
-        саат <span class="text-base font-serif-title text-amber-300 font-semibold">16:00</span>
+      <div class="text-xs font-medium text-stone-200 tracking-widest uppercase">
+        саат <span class="text-base font-serif-title text-amber-300 font-bold">16:00</span>
       </div>
 
-      <div class="font-serif-title text-4xl font-normal tracking-widest text-amber-100">
+      <div class="font-serif-title text-4xl font-bold tracking-widest text-amber-100">
         2026
       </div>
 
-      <!-- Дни недели (ЖЕКШЕМБИ выделен) -->
-      <div class="w-full text-[11px] tracking-[0.2em] uppercase text-stone-400 space-y-2 pt-2">
+      <!-- Дни недели -->
+      <div class="w-full text-[11px] tracking-[0.2em] uppercase text-stone-300 font-medium space-y-2 pt-2">
         <div>Д ү й ш ө м б ү</div>
         <div>Ш е й ш е м б и</div>
         <div>Ш а р ш е м б и</div>
         <div>Б е й ш е м б и</div>
         <div>Ж у м а</div>
         <div>И ш е м б и</div>
-        <div class="py-1 px-4 border border-amber-300/80 rounded-md text-amber-200 font-semibold inline-block mt-1 bg-amber-950/60 shadow-lg">
+        <div class="py-1 px-4 border border-amber-300 rounded-md text-amber-200 font-bold inline-block mt-1 bg-amber-950/80 shadow-lg">
           Ж Е К Ш Е М Б И
         </div>
       </div>
     </section>
 
-    <!-- 3. БЛОК РЕСТОРАНА "АК САРАЙ" С ФОТОГРАФИЕЙ ЗАЛА -->
+    <!-- 3. БЛОК РЕСТОРАНА "АК САРАЙ" -->
     <section class="molded-card-anim molded-frame rounded-3xl p-6 space-y-4 text-center">
       
       <div class="corner-ornament corner-tl"></div>
@@ -327,19 +327,19 @@
       <div class="corner-ornament corner-bl"></div>
       <div class="corner-ornament corner-br"></div>
 
-      <!-- Фото ресторана / банкетного зала -->
-      <div class="w-full h-40 rounded-2xl overflow-hidden border border-amber-500/30 shadow-md relative">
+      <!-- Фото зала -->
+      <div class="w-full h-40 rounded-2xl overflow-hidden border border-amber-600/40 shadow-md relative">
         <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Restaurant Ak Saray" class="w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/20"></div>
       </div>
 
       <div class="space-y-1 pt-1">
-        <span class="text-[10px] uppercase tracking-widest text-stone-500">Дарегибиз</span>
-        <h3 class="font-serif-title text-3xl font-bold text-[#2D1E1B]">Ресторан «Ак Сарай»</h3>
-        <p class="text-xs text-stone-600">Бишкек шаары</p>
+        <span class="text-[10px] uppercase tracking-widest text-stone-700 font-bold">Дарегибиз</span>
+        <h3 class="font-serif-title text-3xl font-bold text-[#211310]">Ресторан «Ак Сарай»</h3>
+        <p class="text-xs text-stone-800 font-medium">Бишкек шаары</p>
       </div>
 
-      <a href="https://2gis.kg/bishkek/search/%D0%90%D0%BA%20%D0%A1%D0%B0%D1%80%D0%B0%D0%B9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl font-medium text-xs text-amber-100 bg-[#2D1E1B] hover:bg-stone-800 transition-colors shadow-lg uppercase tracking-wider border border-amber-400/40">
+      <a href="https://2gis.kg/bishkek/search/%D0%90%D0%BA%20%D0%A1%D0%B0%D1%80%D0%B0%D0%B9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl font-bold text-xs text-amber-100 bg-[#211310] hover:bg-stone-900 transition-colors shadow-lg uppercase tracking-wider border border-amber-400/50">
         <i data-lucide="map-pin" class="w-4 h-4 text-amber-300"></i>
         <span>2GIS Картаны ачуу</span>
       </a>
@@ -354,32 +354,32 @@
       <div class="corner-ornament corner-br"></div>
 
       <div class="text-center space-y-2">
-        <p class="font-serif-italic text-2xl text-[#2D1E1B] leading-snug">
+        <p class="font-serif-italic text-2xl font-bold text-[#211310] leading-snug">
           Урматтуу конок, келериңизди ырастап коюңузду суранабыз
         </p>
       </div>
 
       <form id="rsvpForm" class="space-y-3.5 pt-2">
         <div>
-          <label class="block text-[10px] uppercase tracking-wider text-stone-500 mb-1">Аты-жөнүңүз</label>
-          <input type="text" required placeholder="Мисалы: Асан & Айгүл" class="w-full bg-white border border-stone-300 rounded-xl px-3.5 py-2.5 text-xs text-stone-800 outline-none focus:border-amber-700 transition-colors">
+          <label class="block text-[10px] uppercase tracking-wider text-stone-800 font-bold mb-1">Аты-жөнүңүз</label>
+          <input type="text" required placeholder="Мисалы: Асан & Айгүл" class="w-full bg-white border border-stone-400 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 font-medium outline-none focus:border-amber-800 transition-colors">
         </div>
 
         <div>
-          <label class="block text-[10px] uppercase tracking-wider text-stone-500 mb-1">Катышууңуз</label>
-          <select class="w-full bg-white border border-stone-300 rounded-xl px-3.5 py-2.5 text-xs text-stone-800 outline-none focus:border-amber-700 transition-colors">
+          <label class="block text-[10px] uppercase tracking-wider text-stone-800 font-bold mb-1">Катышууңуз</label>
+          <select class="w-full bg-white border border-stone-400 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 font-medium outline-none focus:border-amber-800 transition-colors">
             <option value="yes">Ооба, сөзсүз барам</option>
             <option value="couple">Жубайым/жолдошум менен барам</option>
             <option value="no">Келе албайм</option>
           </select>
         </div>
 
-        <button type="submit" class="w-full py-3.5 bg-[#2D1E1B] hover:bg-stone-800 text-amber-100 font-medium text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg border border-amber-400/40">
+        <button type="submit" class="w-full py-3.5 bg-[#211310] hover:bg-stone-900 text-amber-100 font-bold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg border border-amber-400/50">
           Ырастоо
         </button>
       </form>
 
-      <div id="rsvpSuccess" class="hidden text-center py-4 text-xs text-emerald-800 font-medium">
+      <div id="rsvpSuccess" class="hidden text-center py-4 text-xs text-emerald-900 font-bold">
         Ырахмат! Жообуңуз кабыл алынды.
       </div>
     </section>
@@ -392,7 +392,7 @@
       <div class="corner-ornament corner-bl"></div>
       <div class="corner-ornament corner-br"></div>
 
-      <p class="font-serif-italic text-2xl text-[#2D1E1B]">
+      <p class="font-serif-italic text-2xl font-bold text-[#211310]">
         Сый урматы менен той ээлери:
       </p>
 
@@ -401,7 +401,7 @@
       </div>
     </section>
 
-    <footer class="text-[10px] text-amber-200/60 uppercase tracking-widest pt-2 pb-8">
+    <footer class="text-[10px] text-amber-200/80 font-medium uppercase tracking-widest pt-2 pb-8">
       Элнуру & Алия • 2026
     </footer>
 
@@ -419,7 +419,7 @@
     const musicIcon = document.getElementById('musicIcon');
     let isPlaying = false;
 
-    // Scroll Reveal Observer для 3D появления плашек
+    // Scroll Observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -430,7 +430,7 @@
 
     document.querySelectorAll('.molded-card-anim').forEach(el => observer.observe(el));
 
-    // Анимация открытия конверта
+    // Открытие конверта
     openBtn.addEventListener('click', () => {
       envelopeWrapper.classList.add('envelope-open');
 
@@ -451,7 +451,7 @@
       }, 1250);
     });
 
-    // Управление музыкой
+    // Музыка
     musicToggleBtn.addEventListener('click', () => {
       if (isPlaying) {
         bgMusic.pause();
@@ -465,7 +465,7 @@
       isPlaying = !isPlaying;
     });
 
-    // RSVP
+    // Форма RSVP
     document.getElementById('rsvpForm').addEventListener('submit', (e) => {
       e.preventDefault();
       document.getElementById('rsvpForm').classList.add('hidden');
