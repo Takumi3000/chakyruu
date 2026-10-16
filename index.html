@@ -8,10 +8,10 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Google Fonts: Cormorant Garamond, Caveat, Montserrat -->
+  <!-- Google Fonts: Cormorant Garamond (с кириллицей Ө, Ү, Ң), Caveat, Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -19,75 +19,57 @@
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #171210;
+      background-color: #120D0B;
       color: #211310;
       overflow-x: hidden;
     }
 
-    /* Поддержка специфических букв кыргызского алфавита (Ө, Ү, Ң) */
-    .font-serif-title {
-      font-family: 'Cormorant Garamond', serif;
-    }
-    .font-script {
-      font-family: 'Caveat', cursive;
-    }
-    .font-serif-italic {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-    }
+    .font-serif-title { font-family: 'Cormorant Garamond', serif; }
+    .font-script { font-family: 'Caveat', cursive; }
+    .font-serif-italic { font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
-    /* НАСЫЩЕННОЕ ЧЁТКОЕ ЗОЛОТОЕ ТИСНЕНИЕ С ВЫСОКОЙ ЧИТАЕМОСТЬЮ */
+    /* Глубокий золотой градиент */
     .gold-foil-text {
-      background: linear-gradient(135deg, #5C3E0E 0%, #A37217 35%, #785210 65%, #4A3009 100%);
+      background: linear-gradient(135deg, #7A5315 0%, #D4AF37 40%, #9E741F 70%, #593E10 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0px 1px 2px rgba(45, 30, 27, 0.35));
+      filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
     }
 
-    .gold-foil-dark {
-      background: linear-gradient(135deg, #7A5315 0%, #D4AF37 50%, #593E10 100%);
+    .gold-foil-light {
+      background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 35%, #B38728 70%, #AA771C 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* ФОН С ТЕКСТУРОЙ */
-    .bg-wedding-texture {
-      background-image: 
-        linear-gradient(to bottom, rgba(23, 18, 16, 0.88), rgba(23, 18, 16, 0.95)),
-        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-    }
-
-    /* РАМКА С ЛЕПНИНОЙ / БАРОККО ОФОРМЛЕНИЕ */
+    /* Рамка с лепниной и теснением */
     .molded-frame {
       position: relative;
       background: #FAF6F0;
       border: 2px solid #C49826;
       box-shadow: 
-        0 0 0 4px #2D1E1B,
-        0 0 0 6px rgba(196, 152, 38, 0.7),
-        0 20px 40px rgba(0, 0, 0, 0.5),
-        inset 0 0 20px rgba(196, 152, 38, 0.15);
+        0 0 0 4px #211310,
+        0 0 0 6px rgba(196, 152, 38, 0.6),
+        0 25px 50px rgba(0, 0, 0, 0.6),
+        inset 0 0 20px rgba(196, 152, 38, 0.12);
     }
 
     .molded-frame-dark {
       position: relative;
-      background: #231613;
+      background: #1C120F;
       border: 2px solid #D4AF37;
       box-shadow: 
-        0 0 0 4px #100B09,
-        0 0 0 6px rgba(212, 175, 55, 0.6),
-        0 25px 50px rgba(0, 0, 0, 0.75),
-        inset 0 0 25px rgba(212, 175, 55, 0.18);
+        0 0 0 4px #0C0807,
+        0 0 0 6px rgba(212, 175, 55, 0.5),
+        0 30px 60px rgba(0, 0, 0, 0.8),
+        inset 0 0 25px rgba(212, 175, 55, 0.15);
     }
 
-    /* Угловые элементы лепнины */
+    /* Угловая лепнина */
     .corner-ornament {
       position: absolute;
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       pointer-events: none;
       z-index: 10;
     }
@@ -96,26 +78,16 @@
     .corner-bl { bottom: 6px; left: 6px; border-bottom: 2px solid #B8860B; border-left: 2px solid #B8860B; }
     .corner-br { bottom: 6px; right: 6px; border-bottom: 2px solid #B8860B; border-right: 2px solid #B8860B; }
 
-    /* Арочные формы */
-    .arch-shape {
-      border-top-left-radius: 160px;
-      border-top-right-radius: 160px;
-      border-bottom-left-radius: 28px;
-      border-bottom-right-radius: 28px;
-    }
-    .arch-full-shape {
-      border-radius: 160px;
-    }
+    .arch-shape { border-top-left-radius: 160px; border-top-right-radius: 160px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; }
+    .arch-full-shape { border-radius: 160px; }
 
-    .perspective-container {
-      perspective: 1200px;
-    }
+    .perspective-container { perspective: 1200px; }
 
-    /* 3D ПОЯВЛЕНИЕ ПЛАШЕК */
+    /* 3D Скролл-анимации появления */
     .molded-card-anim {
       opacity: 0;
-      transform: translateY(60px) rotateX(15deg) scale(0.92);
-      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(50px) rotateX(12deg) scale(0.94);
+      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform, opacity;
     }
 
@@ -124,56 +96,51 @@
       transform: translateY(0) rotateX(0deg) scale(1);
     }
 
-    /* АНИМАЦИЯ КОНВЕРТА */
+    /* Анимация Конверта */
     .envelope-flap {
       transform-origin: top;
       transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
       z-index: 30;
     }
-    .envelope-open .envelope-flap {
-      transform: rotateX(180deg);
-    }
-    .seal-transition {
-      transition: all 0.5s ease-in-out;
-    }
-    .envelope-open .seal-transition {
-      opacity: 0;
-      transform: scale(0.4);
-      pointer-events: none;
-    }
+    .envelope-open .envelope-flap { transform: rotateX(180deg); }
+    .seal-transition { transition: all 0.5s ease-in-out; }
+    .envelope-open .seal-transition { opacity: 0; transform: scale(0.4); pointer-events: none; }
 
-    /* ПУЛЬСАЦИЯ ПЕЧАТИ */
     @keyframes sealPulse {
       0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
       50% { transform: scale(1.05); box-shadow: 0 0 30px 10px rgba(212, 175, 55, 0.3); }
     }
-    .seal-pulse {
-      animation: sealPulse 2.6s infinite ease-in-out;
-    }
+    .seal-pulse { animation: sealPulse 2.6s infinite ease-in-out; }
 
-    .spin-slow {
-      animation: spinDisc 8s linear infinite;
+    /* Анимированные полоски звука */
+    @keyframes soundBar {
+      0%, 100% { height: 4px; }
+      50% { height: 16px; }
     }
-    @keyframes spinDisc {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
+    .bar-1 { animation: soundBar 1s infinite ease-in-out 0.1s; }
+    .bar-2 { animation: soundBar 1s infinite ease-in-out 0.3s; }
+    .bar-3 { animation: soundBar 1s infinite ease-in-out 0.2s; }
+
+    .spin-slow { animation: spinDisc 8s linear infinite; }
+    @keyframes spinDisc { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   </style>
 </head>
-<body class="min-h-screen bg-wedding-texture flex flex-col items-center justify-start py-6 px-4 antialiased selection:bg-amber-200">
+<body class="min-h-screen flex flex-col items-center justify-start py-6 px-4 antialiased relative">
+
+  <!-- ================= CANVAS ЖИВЫХ ЧАСТИЦ (ЗОЛОТАЯ ПЫЛЬЦА) ================= -->
+  <canvas id="particlesCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-60"></canvas>
 
   <!-- ================= 3D КОНВЕРТ С СУРГУЧНОЙ ПЕЧАТЬЮ ================= -->
-  <div id="envelopeOverlay" class="fixed inset-0 z-50 bg-[#140E0C]/96 backdrop-blur-lg flex flex-col items-center justify-center p-4 transition-all duration-1000">
+  <div id="envelopeOverlay" class="fixed inset-0 z-50 bg-[#120D0B]/98 backdrop-blur-xl flex flex-col items-center justify-center p-4 transition-all duration-1000">
     
-    <!-- Четкие контрастные заголовки конверта -->
     <div class="text-center mb-8 space-y-2">
-      <div class="w-12 h-12 mx-auto rounded-full border border-amber-400/60 flex items-center justify-center mb-3 bg-amber-950/50 shadow-md">
-        <i data-lucide="crown" class="w-6 h-6 text-amber-300"></i>
+      <div class="w-14 h-14 mx-auto rounded-full border border-amber-400/60 flex items-center justify-center mb-3 bg-amber-950/50 shadow-lg">
+        <i data-lucide="crown" class="w-7 h-7 text-amber-300"></i>
       </div>
       <h2 class="font-serif-italic text-3xl sm:text-4xl text-amber-100 font-bold drop-shadow-md">
         Чакыруу баракчасы
       </h2>
-      <p class="text-[11px] sm:text-xs uppercase tracking-[0.35em] text-amber-200 font-medium">
+      <p class="text-[11px] sm:text-xs uppercase tracking-[0.35em] text-amber-200/90 font-medium">
         ҮЙЛӨНҮҮ ТОЮНА ЧАКЫРУУ
       </p>
     </div>
@@ -181,10 +148,8 @@
     <!-- 3D Конверт -->
     <div id="envelopeWrapper" class="perspective-container relative w-full max-w-xs h-64 bg-[#3B2923] rounded-2xl shadow-2xl border border-amber-400/50 flex items-center justify-center">
       
-      <!-- Верхний клапан -->
       <div id="envelopeFlap" class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#2D1E1B] rounded-t-2xl border-b border-amber-400/40 origin-top shadow-xl flex items-end justify-center pb-2" style="clip-path: polygon(0 0, 100% 0, 50% 100%);"></div>
 
-      <!-- Кнопка "АЧУУ" -->
       <button id="openBtn" class="seal-transition seal-pulse z-40 relative w-24 h-24 rounded-full bg-gradient-to-br from-amber-200 via-amber-600 to-amber-950 border-2 border-amber-300 shadow-2xl flex items-center justify-center cursor-pointer active:scale-95">
         <div class="w-18 h-18 rounded-full border border-amber-200/70 bg-amber-950/60 flex flex-col items-center justify-center text-amber-100">
           <i data-lucide="sparkles" class="w-4 h-4 mb-0.5 text-amber-200"></i>
@@ -192,41 +157,42 @@
         </div>
       </button>
 
-      <!-- Нижняя складка -->
       <div class="absolute bottom-0 left-0 right-0 h-36 bg-[#4A342D] rounded-b-2xl pointer-events-none" style="clip-path: polygon(0 100%, 50% 28%, 100% 100%); border-top: 1px solid rgba(254,243,199,0.25);"></div>
     </div>
 
-    <!-- Четкая контрастная подсказка снизу -->
     <p class="text-xs text-amber-100 font-medium tracking-wide mt-8 drop-shadow-sm">
       Чакырууну ачуу үчүн «АЧУУ» баскычын басыңыз
     </p>
   </div>
 
-  <!-- ================= ПЛЕЕР МУЗЫКИ ================= -->
-  <div id="musicControls" class="fixed bottom-5 right-5 z-40 hidden">
-    <button id="musicToggleBtn" class="w-12 h-12 rounded-full bg-[#251916] border-2 border-amber-400/80 text-amber-200 shadow-2xl flex items-center justify-center backdrop-blur-md active:scale-90 transition-transform">
-      <i data-lucide="disc" id="musicIcon" class="w-6 h-6 spin-slow"></i>
+  <!-- ================= ПЛЕЕР МУЗЫКИ С ЭКВАЛАЙЗЕРОМ ================= -->
+  <div id="musicControls" class="fixed bottom-5 right-5 z-40 hidden flex items-center gap-2 bg-[#1C120F]/90 border border-amber-400/60 p-2 rounded-full shadow-2xl backdrop-blur-md">
+    <div id="soundWaves" class="flex items-center gap-1 px-2">
+      <span class="w-0.5 bg-amber-300 rounded-full bar-1"></span>
+      <span class="w-0.5 bg-amber-300 rounded-full bar-2"></span>
+      <span class="w-0.5 bg-amber-300 rounded-full bar-3"></span>
+    </div>
+    <button id="musicToggleBtn" class="w-10 h-10 rounded-full bg-[#2D1E1B] text-amber-200 flex items-center justify-center active:scale-90 transition-transform">
+      <i data-lucide="disc" id="musicIcon" class="w-5 h-5 spin-slow"></i>
     </button>
   </div>
 
-  <!-- Аудиозапись -->
   <audio id="bgMusic" loop preload="auto">
     <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- ================= ОСНОВНОЙ КОНТЕНТ ================= -->
-  <main class="perspective-container w-full max-w-sm mx-auto flex flex-col items-center space-y-10 text-center pt-2">
+  <!-- ================= ОСНОВНОЙ ИНТЕРАКТИВНЫЙ КОНТЕНТ ================= -->
+  <main class="perspective-container w-full max-w-sm mx-auto flex flex-col items-center space-y-10 text-center pt-2 z-10">
 
     <!-- 1. ГЛАВНАЯ КАРТОЧКА -->
     <section class="molded-card-anim molded-frame arch-shape w-full p-8 flex flex-col items-center space-y-5 pt-10">
       
-      <!-- Декоративные углы-лепнина -->
       <div class="corner-ornament corner-tl"></div>
       <div class="corner-ornament corner-tr"></div>
       <div class="corner-ornament corner-bl"></div>
       <div class="corner-ornament corner-br"></div>
 
-      <!-- Герб / Монограмма E & A -->
+      <!-- Монограмма E & A -->
       <div class="w-16 h-16 rounded-full border-2 border-amber-800/80 p-1 flex items-center justify-center bg-amber-900/10 shadow-inner my-1">
         <div class="w-full h-full rounded-full border border-amber-800/50 flex items-center justify-center">
           <span class="font-serif-title text-xl font-bold gold-foil-dark">Э & А</span>
@@ -235,8 +201,8 @@
 
       <span class="text-[11px] uppercase tracking-[0.38em] text-stone-800 font-bold">Үйлөнүү үлпөтүнө чакыруу</span>
       
-      <!-- ЧЁТКИЙ ТЕМНО-ЗОЛОТОЙ ЗАГОЛОВОК ЭЛНУРУ & АЛИЯ -->
-      <div class="py-2">
+      <!-- ГРАНДИОЗНЫЙ ЗАГОЛОВОК -->
+      <div class="py-1">
         <h1 class="font-serif-title text-5xl sm:text-6xl font-bold leading-none tracking-tight gold-foil-text">
           Элнуру
         </h1>
@@ -246,10 +212,12 @@
         </h1>
       </div>
 
-      <!-- Фото банер колец -->
-      <div class="w-full h-44 rounded-2xl overflow-hidden border-2 border-amber-600/50 shadow-md relative my-2">
-        <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Wedding Rings & Flowers" class="w-full h-full object-cover">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+      <!-- ФОТО ЗАГЛУШКА 1: Главное фото пары -->
+      <div class="w-full h-52 rounded-2xl overflow-hidden border-2 border-amber-600/50 shadow-lg relative my-1 group">
+        <!-- ФОТО: Замените src ниже на фото жениха и невесты -->
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Элнуру & Алия" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+        <span class="absolute bottom-2 right-3 text-[10px] text-amber-200/90 tracking-widest font-serif-italic">08.11.2026</span>
       </div>
 
       <p class="font-serif-italic text-3xl font-bold text-[#211310]">
@@ -261,7 +229,36 @@
       </p>
     </section>
 
-    <!-- 2. БЛОК ДАТЫ И КАЛЕНДАРЯ -->
+    <!-- 2. ИНТЕРАКТИВНЫЙ ТАЙМЕР ОБРАТНОГО ОТСЧЕТА -->
+    <section class="molded-card-anim molded-frame-dark rounded-3xl w-full p-6 space-y-4">
+      <div class="corner-ornament corner-tl"></div>
+      <div class="corner-ornament corner-tr"></div>
+      <div class="corner-ornament corner-bl"></div>
+      <div class="corner-ornament corner-br"></div>
+
+      <span class="text-[10px] uppercase tracking-[0.3em] text-amber-300 font-semibold block">Тойго чейин калды:</span>
+
+      <div class="grid grid-cols-4 gap-2 pt-1 text-stone-100">
+        <div class="bg-black/50 border border-amber-500/30 p-2.5 rounded-xl">
+          <span id="timerDays" class="font-serif-title text-2xl font-bold text-amber-200 block">00</span>
+          <span class="text-[9px] uppercase tracking-wider text-stone-400">Күн</span>
+        </div>
+        <div class="bg-black/50 border border-amber-500/30 p-2.5 rounded-xl">
+          <span id="timerHours" class="font-serif-title text-2xl font-bold text-amber-200 block">00</span>
+          <span class="text-[9px] uppercase tracking-wider text-stone-400">Саат</span>
+        </div>
+        <div class="bg-black/50 border border-amber-500/30 p-2.5 rounded-xl">
+          <span id="timerMinutes" class="font-serif-title text-2xl font-bold text-amber-200 block">00</span>
+          <span class="text-[9px] uppercase tracking-wider text-stone-400">Мин</span>
+        </div>
+        <div class="bg-black/50 border border-amber-500/30 p-2.5 rounded-xl">
+          <span id="timerSeconds" class="font-serif-title text-2xl font-bold text-amber-200 block">00</span>
+          <span class="text-[9px] uppercase tracking-wider text-stone-400">Сек</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. БЛОК ДАТЫ И КАЛЕНДАРЯ -->
     <section class="molded-card-anim molded-frame-dark arch-full-shape w-full p-8 flex flex-col items-center space-y-6 pt-12 pb-12 text-stone-100">
       
       <div class="corner-ornament corner-tl"></div>
@@ -269,9 +266,10 @@
       <div class="corner-ornament corner-bl"></div>
       <div class="corner-ornament corner-br"></div>
 
-      <!-- Фото рук молодоженов -->
-      <div class="w-24 h-24 rounded-full border-2 border-amber-300/80 p-1 shadow-2xl overflow-hidden mb-1">
-        <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=400&q=80" alt="Wedding Hands" class="w-full h-full object-cover rounded-full">
+      <!-- ФОТО ЗАГЛУШКА 2: Руки с кольцами -->
+      <div class="w-24 h-24 rounded-full border-2 border-amber-300/80 p-1 shadow-2xl overflow-hidden mb-1 group">
+        <!-- ФОТО: Замените src ниже на фото колец/деталей -->
+        <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=400&q=80" alt="Wedding Detail" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500">
       </div>
 
       <span class="font-serif-italic text-3xl font-bold text-amber-200">Өтүү күнү:</span>
@@ -280,12 +278,10 @@
         Н О Я Б Р Ь
       </div>
 
-      <!-- Календарный ряд -->
       <div class="flex items-center justify-center gap-3 text-lg font-serif-title tracking-wider my-1">
         <span class="text-stone-500">6</span>
         <span class="text-stone-400">7</span>
         
-        <!-- Выделенное число 8 -->
         <div class="relative px-3.5 py-1.5 flex items-center justify-center">
           <svg class="absolute inset-0 w-full h-full text-amber-300 drop-shadow-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
@@ -305,7 +301,6 @@
         2026
       </div>
 
-      <!-- Дни недели -->
       <div class="w-full text-[11px] tracking-[0.2em] uppercase text-stone-300 font-medium space-y-2 pt-2">
         <div>Д ү й ш ө м б ү</div>
         <div>Ш е й ш е м б и</div>
@@ -319,17 +314,101 @@
       </div>
     </section>
 
-    <!-- 3. БЛОК РЕСТОРАНА "АК САРАЙ" -->
-    <section class="molded-card-anim molded-frame rounded-3xl p-6 space-y-4 text-center">
-      
+    <!-- 4. ИНТЕРАКТИВНАЯ ПРОГРАММА ДНЯ (TIMELINE) -->
+    <section class="molded-card-anim molded-frame rounded-3xl p-6 space-y-5 text-left">
       <div class="corner-ornament corner-tl"></div>
       <div class="corner-ornament corner-tr"></div>
       <div class="corner-ornament corner-bl"></div>
       <div class="corner-ornament corner-br"></div>
 
-      <!-- Фото зала -->
-      <div class="w-full h-40 rounded-2xl overflow-hidden border border-amber-600/40 shadow-md relative">
-        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Restaurant Ak Saray" class="w-full h-full object-cover">
+      <div class="text-center">
+        <span class="text-[10px] uppercase tracking-widest text-stone-700 font-bold">Иш-чаранын графиги</span>
+        <h3 class="font-serif-title text-3xl font-bold text-[#211310] mt-1">Программа</h3>
+      </div>
+
+      <div class="space-y-4 pt-2 relative before:absolute before:left-6 before:top-3 before:bottom-3 before:w-0.5 before:bg-amber-800/30">
+        
+        <div class="flex items-start gap-4 relative z-10">
+          <div class="w-12 h-12 rounded-full bg-[#211310] text-amber-300 flex items-center justify-center shrink-0 border border-amber-400/40 shadow-md">
+            <i data-lucide="wine" class="w-5 h-5"></i>
+          </div>
+          <div class="pt-1">
+            <span class="text-xs font-bold text-amber-900 block">16:00</span>
+            <h4 class="font-bold text-sm text-[#211310]">Конокторду тосуу / Welcome Drink</h4>
+            <p class="text-[11px] text-stone-600 mt-0.5">Фуршет, сүрөткө түшүү жана жагымдуу музыка</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 relative z-10">
+          <div class="w-12 h-12 rounded-full bg-[#211310] text-amber-300 flex items-center justify-center shrink-0 border border-amber-400/40 shadow-md">
+            <i data-lucide="sparkle" class="w-5 h-5"></i>
+          </div>
+          <div class="pt-1">
+            <span class="text-xs font-bold text-amber-900 block">17:00</span>
+            <h4 class="font-bold text-sm text-[#211310]">Салтанаттуу ачылыш</h4>
+            <p class="text-[11px] text-stone-600 mt-0.5">Жаштардын кирип келиши жана тосттор</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 relative z-10">
+          <div class="w-12 h-12 rounded-full bg-[#211310] text-amber-300 flex items-center justify-center shrink-0 border border-amber-400/40 shadow-md">
+            <i data-lucide="utensils-crossed" class="w-5 h-5"></i>
+          </div>
+          <div class="pt-1">
+            <span class="text-xs font-bold text-amber-900 block">18:00</span>
+            <h4 class="font-bold text-sm text-[#211310]">Той дасторкону</h4>
+            <p class="text-[11px] text-stone-600 mt-0.5">Шоу-программа, бий жана куттуктоолор</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. ДРЕСС-КОД И ПОЛАРОИД ФОТО-СЕТКА -->
+    <section class="molded-card-anim molded-frame rounded-3xl p-6 space-y-4 text-center">
+      <div class="corner-ornament corner-tl"></div>
+      <div class="corner-ornament corner-tr"></div>
+      <div class="corner-ornament corner-bl"></div>
+      <div class="corner-ornament corner-br"></div>
+
+      <span class="text-[10px] uppercase tracking-widest text-stone-700 font-bold">Коноктор үчүн</span>
+      <h3 class="font-serif-title text-3xl font-bold text-[#211310]">Дресс-код</h3>
+      <p class="text-xs text-stone-700 font-medium">Биздин тойдун түстөр палитрасына ылайык кийинип келсеңиздер кубанычта болобуз</p>
+
+      <!-- Кружки палитры -->
+      <div class="flex items-center justify-center gap-3 py-2">
+        <div class="w-8 h-8 rounded-full bg-[#211310] border-2 border-amber-400 shadow-md" title="Шоколадный"></div>
+        <div class="w-8 h-8 rounded-full bg-[#8C7663] border-2 border-amber-400 shadow-md" title="Бежевый"></div>
+        <div class="w-8 h-8 rounded-full bg-[#D4AF37] border-2 border-amber-400 shadow-md" title="Золотой"></div>
+        <div class="w-8 h-8 rounded-full bg-[#FAF6F0] border-2 border-amber-400 shadow-md" title="Кремовый"></div>
+      </div>
+
+      <!-- ФОТО ЗАГЛУШКИ 3 & 4: Примеры образов (Сетка) -->
+      <div class="grid grid-cols-2 gap-2 pt-2">
+        <div class="bg-white p-2 border border-stone-300 shadow-md rounded-xl transform -rotate-2">
+          <!-- ФОТО: Образ для женщин -->
+          <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=400&q=80" alt="Dress Code 1" class="w-full h-32 object-cover rounded-lg">
+          <span class="text-[10px] font-bold text-stone-700 block mt-1">Айымдар үчүн</span>
+        </div>
+        <div class="bg-white p-2 border border-stone-300 shadow-md rounded-xl transform rotate-2">
+          <!-- ФОТО: Образ для мужчин -->
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80" alt="Dress Code 2" class="w-full h-32 object-cover rounded-lg">
+          <span class="text-[10px] font-bold text-stone-700 block mt-1">Мырзалар үчүн</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. БЛОК РЕСТОРАНА "АК САРАЙ" -->
+    <section class="molded-card-anim molded-frame rounded-3xl p-6 space-y-4 text-center">
+      <div class="corner-ornament corner-tl"></div>
+      <div class="corner-ornament corner-tr"></div>
+      <div class="corner-ornament corner-bl"></div>
+      <div class="corner-ornament corner-br"></div>
+
+      <!-- ФОТО ЗАГЛУШКА 5: Ресторан -->
+      <div class="w-full h-44 rounded-2xl overflow-hidden border border-amber-600/40 shadow-md relative group">
+        <!-- ФОТО: Замените src ниже на фото зала ресторана -->
+        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Ресторан Ак Сарай" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
         <div class="absolute inset-0 bg-black/20"></div>
       </div>
 
@@ -345,9 +424,8 @@
       </a>
     </section>
 
-    <!-- 4. ФОРМА ПОДТВЕРЖДЕНИЯ RSVP -->
+    <!-- 7. РАСШИРЕННАЯ ФОРМА ПОДТВЕРЖДЕНИЯ RSVP -->
     <section class="molded-card-anim molded-frame arch-shape p-6 space-y-4 text-left pt-10">
-      
       <div class="corner-ornament corner-tl"></div>
       <div class="corner-ornament corner-tr"></div>
       <div class="corner-ornament corner-bl"></div>
@@ -374,6 +452,15 @@
           </select>
         </div>
 
+        <div>
+          <label class="block text-[10px] uppercase tracking-wider text-stone-800 font-bold mb-1">Суусундук тандооңуз</label>
+          <select class="w-full bg-white border border-stone-400 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 font-medium outline-none focus:border-amber-800 transition-colors">
+            <option value="wine">Вино / Шампанское</option>
+            <option value="strong">Күчтүү ичимдиктер</option>
+            <option value="soft">Алкоголсуз суусундуктар</option>
+          </select>
+        </div>
+
         <button type="submit" class="w-full py-3.5 bg-[#211310] hover:bg-stone-900 text-amber-100 font-bold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg border border-amber-400/50">
           Ырастоо
         </button>
@@ -384,9 +471,8 @@
       </div>
     </section>
 
-    <!-- 5. ТОЙ ЭЭЛЕРИ -->
+    <!-- 8. ТОЙ ЭЭЛЕРИ -->
     <section class="molded-card-anim molded-frame rounded-3xl p-8 space-y-3">
-      
       <div class="corner-ornament corner-tl"></div>
       <div class="corner-ornament corner-tr"></div>
       <div class="corner-ornament corner-bl"></div>
@@ -410,16 +496,63 @@
   <script>
     lucide.createIcons();
 
-    const openBtn = document.getElementById('openBtn');
-    const envelopeOverlay = document.getElementById('envelopeOverlay');
-    const envelopeWrapper = document.getElementById('envelopeWrapper');
-    const bgMusic = document.getElementById('bgMusic');
-    const musicControls = document.getElementById('musicControls');
-    const musicToggleBtn = document.getElementById('musicToggleBtn');
-    const musicIcon = document.getElementById('musicIcon');
-    let isPlaying = false;
+    // 1. АНИМАЦИЯ ЗОЛОТИСТОЙ ПЫЛИ (PARTICLES CANVAS)
+    const canvas = document.getElementById('particlesCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
 
-    // Scroll Observer
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    for (let i = 0; i < 35; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 0.5,
+        alpha: Math.random() * 0.6 + 0.2,
+        speedY: Math.random() * 0.4 + 0.1,
+        speedX: (Math.random() - 0.5) * 0.3
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.y -= p.speedY;
+        p.x += p.speedX;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.x < 0 || p.x > canvas.width) p.x = Math.random() * canvas.width;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(212, 175, 55, ${p.alpha})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // 2. ТАЙМЕР ОБРАТНОГО ОТСЧЕТА
+    const targetDate = new Date('2026-11-08T16:00:00').getTime();
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff > 0) {
+        document.getElementById('timerDays').innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
+        document.getElementById('timerHours').innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
+        document.getElementById('timerMinutes').innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
+        document.getElementById('timerSeconds').innerText = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // 3. СКРОЛЛ И ОБСЕРВЕР ДЛЯ ПЛАШЕК
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -430,14 +563,21 @@
 
     document.querySelectorAll('.molded-card-anim').forEach(el => observer.observe(el));
 
-    // Открытие конверта
+    // 4. КОНВЕРТ И МУЗЫКА
+    const openBtn = document.getElementById('openBtn');
+    const envelopeOverlay = document.getElementById('envelopeOverlay');
+    const envelopeWrapper = document.getElementById('envelopeWrapper');
+    const bgMusic = document.getElementById('bgMusic');
+    const musicControls = document.getElementById('musicControls');
+    const musicToggleBtn = document.getElementById('musicToggleBtn');
+    const musicIcon = document.getElementById('musicIcon');
+    const soundWaves = document.getElementById('soundWaves');
+    let isPlaying = false;
+
     openBtn.addEventListener('click', () => {
       envelopeWrapper.classList.add('envelope-open');
 
-      bgMusic.play().then(() => {
-        isPlaying = true;
-      }).catch(err => console.log('Autoplay audio:', err));
-
+      bgMusic.play().then(() => { isPlaying = true; }).catch(err => console.log(err));
       musicControls.classList.remove('hidden');
 
       setTimeout(() => {
@@ -451,21 +591,19 @@
       }, 1250);
     });
 
-    // Музыка
     musicToggleBtn.addEventListener('click', () => {
       if (isPlaying) {
         bgMusic.pause();
         musicIcon.classList.remove('spin-slow');
-        musicIcon.classList.add('opacity-40');
+        soundWaves.classList.add('opacity-30');
       } else {
         bgMusic.play();
         musicIcon.classList.add('spin-slow');
-        musicIcon.classList.remove('opacity-40');
+        soundWaves.classList.remove('opacity-30');
       }
       isPlaying = !isPlaying;
     });
 
-    // Форма RSVP
     document.getElementById('rsvpForm').addEventListener('submit', (e) => {
       e.preventDefault();
       document.getElementById('rsvpForm').classList.add('hidden');
