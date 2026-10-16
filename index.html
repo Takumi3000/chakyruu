@@ -1,614 +1,708 @@
-<!DOCTYPE html>
-<html lang="ky">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Элнуру & Алия — Үйлөнүү үлпөтү</title>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Элнуру & Алия</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Marck+Script&family=PT+Sans:wght@400;700&display=swap&subset=cyrillic,cyrillic-ext">
+<style>
+/* Layout: one phone-width column, alternating torn-paper bands of wine and ivory, envelope opens first. */
+:root {
+  --wine: #4a0000;
+  --deep: #2a0305;
+  --oxblood: #6d0f1b;
+  --ivory: #f8f3ea;
+  --paper: #efe6d8;
+  --gold: #c9a24b;
+  --gold-soft: #e3c780;
+  --blush: #e9c9c4;
+  --ink: #3a0508;
+  --stage-bg: #120405;
+  --f-script: "Marck Script", "Segoe Script", cursive;
+  --f-display: "Cormorant Garamond", "Palatino Linotype", Georgia, serif;
+  --f-body: "PT Sans", "Segoe UI", Arial, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--stage-bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+body.locked { overflow: hidden; }
+h1, h2, h3, p { margin: 0; }
+h1, h2 { text-wrap: balance; }
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Google Fonts: Cormorant Garamond (с кириллицей Ө, Ү, Ң), Caveat, Montserrat -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+.stage {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--deep);
+  box-shadow: 0 0 80px rgba(0,0,0,.6);
+  overflow-x: clip;
+}
+.band {
+  position: relative;
+  padding-block: 56px 64px;
+}
+.band > .in {
+  padding-left: max(22px, env(safe-area-inset-left, 0px));
+  padding-right: max(22px, env(safe-area-inset-right, 0px));
+}
+.band::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0;
+  top: -27px;
+  height: 28px;
+  background: var(--band);
+  clip-path: var(--torn, none);
+  pointer-events: none;
+}
+.hero { --band: var(--deep); }
+.ivory { --band: var(--ivory); background: var(--ivory); }
+.dark { --band: var(--deep); background: var(--deep); color: var(--ivory); }
+.hero::before { display: none; }
 
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #120D0B;
-      color: #211310;
-      overflow-x: hidden;
-    }
+.eyebrow {
+  font-family: var(--f-body);
+  font-size: 12px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+}
+.h2 {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: clamp(34px, 9.4vw, 44px);
+  line-height: 1.1;
+  color: var(--oxblood);
+  text-align: center;
+}
+.dark .h2 { color: var(--ivory); }
 
-    .font-serif-title { font-family: 'Cormorant Garamond', serif; }
-    .font-script { font-family: 'Caveat', cursive; }
-    .font-serif-italic { font-family: 'Cormorant Garamond', serif; font-style: italic; }
+/* reveal */
+.rv { opacity: .4; transform: translateY(26px); transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1); }
+.rv.in { opacity: 1; transform: none; }
+.rv.d1 { transition-delay: .12s; }
+.rv.d2 { transition-delay: .24s; }
+.rv.d3 { transition-delay: .36s; }
 
-    /* Глубокий золотой градиент */
-    .gold-foil-text {
-      background: linear-gradient(135deg, #7A5315 0%, #D4AF37 40%, #9E741F 70%, #593E10 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.3));
-    }
+/* ---------- envelope ---------- */
+.env {
+  position: fixed; inset: 0; z-index: 100;
+  perspective: 1400px;
+  background: radial-gradient(120% 90% at 50% 40%, #5f0b17 0%, #3a0409 100%);
+  transition: opacity 1s ease .1s, transform 1.1s cubic-bezier(.6,0,.2,1) .1s;
+  overflow: hidden;
+}
+.env.gone { opacity: 0; transform: scale(1.12); pointer-events: none; }
+.env-layer { position: absolute; inset: 0; }
+.env-l { background: #4d0711; clip-path: polygon(0 0, 50% 52%, 0 100%); }
+.env-r { background: #480610; clip-path: polygon(100% 0, 50% 52%, 100% 100%); }
+.env-b { background: #5a0914; clip-path: polygon(0 100%, 50% 52%, 100% 100%); }
+.env-flap {
+  background: linear-gradient(180deg, #7b1220 0%, #5e0b17 100%);
+  clip-path: polygon(0 0, 100% 0, 50% 52%);
+  transform-origin: 50% 0;
+  transition: transform 1s cubic-bezier(.5,0,.2,1);
+  filter: drop-shadow(0 12px 18px rgba(0,0,0,.5));
+}
+.env.opening .env-flap { transform: rotateX(180deg); }
+.env-top {
+  position: absolute; left: 0; right: 0; top: 7%;
+  text-align: center; color: var(--ivory);
+  transition: opacity .5s ease;
+}
+.env-top .eyebrow { font-size: clamp(13px, 3.8vw, 16px); opacity: .9; }
+.env-top .sc { font-family: var(--f-script); font-size: clamp(44px, 14vw, 64px); line-height: 1.1; margin-top: 10px; }
+.env.opening .env-top { opacity: 0; }
+.crest {
+  position: absolute; left: 50%; bottom: 8%;
+  width: min(54vw, 230px); transform: translateX(-50%);
+  color: var(--gold-soft);
+  transition: opacity .6s ease;
+}
+.env.opening .crest { opacity: 0; }
+.seal {
+  position: absolute; left: 50%; top: 52%;
+  width: 128px; height: 128px;
+  transform: translate(-50%, -50%);
+  border: 0; padding: 0; background: none; cursor: pointer;
+  z-index: 3;
+  transition: transform .7s cubic-bezier(.5,-.4,.3,1), opacity .5s ease .2s;
+  animation: sealPulse 2.2s ease-in-out infinite;
+}
+.seal:focus-visible { outline: 3px solid var(--ivory); outline-offset: 6px; border-radius: 50%; }
+.seal svg { width: 100%; height: 100%; display: block; filter: drop-shadow(0 10px 14px rgba(0,0,0,.55)); }
+.seal span {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-family: var(--f-display); font-weight: 600; font-size: 15px; letter-spacing: .12em;
+  color: #5a0a14; text-transform: uppercase;
+}
+.env.opening .seal { transform: translate(-50%, -50%) scale(.2) rotate(40deg); opacity: 0; animation: none; }
+@keyframes sealPulse { 0%,100% { transform: translate(-50%,-50%) scale(1); } 50% { transform: translate(-50%,-50%) scale(1.06); } }
 
-    .gold-foil-light {
-      background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 35%, #B38728 70%, #AA771C 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+/* ---------- hero ---------- */
+.hero {
+  background:
+    radial-gradient(120% 70% at 50% 0%, #86162a 0%, rgba(74,0,0,0) 62%),
+    linear-gradient(180deg, #4a0000 0%, #2a0305 100%);
+  color: var(--ivory);
+  text-align: center;
+  padding-block: calc(56px + env(safe-area-inset-top, 0px)) 96px;
+  overflow: hidden;
+}
+.hero::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(rgba(227,199,128,.16) 1px, transparent 1.4px);
+  background-size: 26px 26px;
+  mask-image: linear-gradient(180deg, #000 0%, transparent 85%);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 85%);
+}
+.hero .in { position: relative; z-index: 1; }
+.hero .eyebrow { color: var(--gold-soft); }
+.rings { width: 150px; margin: 26px auto 8px; display: block; color: var(--gold); overflow: visible; }
+.rings circle { fill: none; stroke: currentColor; stroke-width: 2; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.rings .gem { fill: var(--blush); stroke: none; opacity: 0; transform-origin: 70px 8px; }
+.live .rings circle { animation: draw 2.6s cubic-bezier(.5,0,.2,1) .4s forwards; }
+.live .rings circle + circle { animation-delay: 1s; }
+.live .rings .gem { animation: gem 1s ease 2.8s forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes gem { 0% { opacity: 0; transform: scale(.2); } 60% { opacity: 1; transform: scale(1.5); } 100% { opacity: 1; transform: scale(1); } }
+.names { font-family: var(--f-script); font-weight: 400; line-height: 1; font-size: clamp(60px, 19vw, 88px); }
+.names .amp { display: block; font-size: .5em; color: var(--gold); margin: 6px 0 4px; }
+.names .nm { display: block; opacity: .001; transform: translateY(18px); filter: blur(6px); }
+.live .names .nm { animation: nameIn 1.4s ease forwards; }
+.live .names .nm:nth-child(1) { animation-delay: .5s; }
+.live .names .amp { animation: nameIn 1.2s ease .9s both; }
+.live .names .nm:nth-child(3) { animation-delay: 1.2s; }
+@keyframes nameIn { to { opacity: 1; transform: none; filter: none; } }
+.when { margin-top: 30px; font-family: var(--f-display); font-size: 24px; letter-spacing: .04em; }
+.when small { display: block; margin-top: 4px; font-family: var(--f-body); font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: var(--gold-soft); }
+.scroll-hint { margin-top: 34px; display: inline-block; color: var(--gold-soft); font-size: 12px; letter-spacing: .3em; text-transform: uppercase; animation: bob 2.4s ease-in-out infinite; }
+@keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(7px); } }
 
-    /* Рамка с лепниной и теснением */
-    .molded-frame {
-      position: relative;
-      background: #FAF6F0;
-      border: 2px solid #C49826;
-      box-shadow: 
-        0 0 0 4px #211310,
-        0 0 0 6px rgba(196, 152, 38, 0.6),
-        0 25px 50px rgba(0, 0, 0, 0.6),
-        inset 0 0 20px rgba(196, 152, 38, 0.12);
-    }
+/* ---------- invitation text ---------- */
+.lead .h2 { margin-bottom: 26px; }
+.lead p { text-align: center; font-size: 17px; max-width: 34ch; margin-inline: auto; }
+.lead p + p { margin-top: 14px; }
+.orn { display: block; width: 120px; margin: 28px auto 0; color: var(--gold); }
 
-    .molded-frame-dark {
-      position: relative;
-      background: #1C120F;
-      border: 2px solid #D4AF37;
-      box-shadow: 
-        0 0 0 4px #0C0807,
-        0 0 0 6px rgba(212, 175, 55, 0.5),
-        0 30px 60px rgba(0, 0, 0, 0.8),
-        inset 0 0 25px rgba(212, 175, 55, 0.15);
-    }
+/* ---------- calendar ---------- */
+.cal-wrap { display: grid; place-items: center; }
+.cal {
+  width: 100%; max-width: 380px;
+  background: radial-gradient(100% 60% at 50% 0%, #5e0a14 0%, var(--wine) 55%);
+  color: var(--ivory);
+  border-radius: 190px 190px 36px 36px;
+  padding: 66px 26px 28px;
+  box-shadow: 0 24px 50px rgba(58,5,8,.35);
+}
+.cal-head { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--f-display); font-size: 30px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding-inline: 8px; }
+.cal-head span:last-child { font-size: 26px; }
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); margin-top: 22px; row-gap: 6px; text-align: center; font-family: var(--f-display); font-variant-numeric: lining-nums; }
+.cal-grid .dw { font-family: var(--f-body); font-size: 12px; letter-spacing: .12em; color: var(--gold-soft); padding-bottom: 10px; }
+.cal-grid .dn { position: relative; height: 40px; display: grid; place-items: center; font-size: 20px; }
+.cal-grid .dn.on { font-weight: 700; color: #fff; }
+.cal-grid .dn svg { position: absolute; width: 46px; height: 46px; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: visible; }
+.cal-grid .dn path { fill: rgba(233,201,196,.14); stroke: var(--blush); stroke-width: 1.8; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 1.6s ease .3s, fill 1s ease 1.6s; }
+.cal.in .dn path { stroke-dashoffset: 0; fill: rgba(233,201,196,.3); }
+.cal-time {
+  margin-top: 20px;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  background: rgba(255,255,255,.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 6px 16px 16px 6px;
+  padding: 14px 18px;
+  font-family: var(--f-display); font-size: 22px; font-weight: 600;
+}
+.cal-time b { font-variant-numeric: lining-nums tabular-nums; letter-spacing: .04em; }
 
-    /* Угловая лепнина */
-    .corner-ornament {
-      position: absolute;
-      width: 26px;
-      height: 26px;
-      pointer-events: none;
-      z-index: 10;
-    }
-    .corner-tl { top: 6px; left: 6px; border-top: 2px solid #B8860B; border-left: 2px solid #B8860B; }
-    .corner-tr { top: 6px; right: 6px; border-top: 2px solid #B8860B; border-right: 2px solid #B8860B; }
-    .corner-bl { bottom: 6px; left: 6px; border-bottom: 2px solid #B8860B; border-left: 2px solid #B8860B; }
-    .corner-br { bottom: 6px; right: 6px; border-bottom: 2px solid #B8860B; border-right: 2px solid #B8860B; }
+/* ---------- venue ---------- */
+.venue { text-align: center; }
+.venue .city { margin-top: 22px; font-size: 14px; letter-spacing: .28em; text-transform: uppercase; color: var(--oxblood); }
+.venue .place { margin-top: 10px; font-family: var(--f-display); font-weight: 600; font-size: clamp(36px, 11vw, 50px); line-height: 1.05; color: var(--wine); letter-spacing: .02em; }
+.venue .place small { display: block; margin-top: 8px; font-size: 15px; font-weight: 500; letter-spacing: .34em; text-transform: uppercase; color: var(--oxblood); }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 30px;
+  padding: 15px 28px;
+  border-radius: 999px;
+  background: var(--wine); color: var(--ivory);
+  font-family: var(--f-display); font-weight: 600; font-size: 19px; letter-spacing: .04em;
+  text-decoration: none;
+  box-shadow: 0 12px 26px rgba(74,0,0,.32);
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.btn:hover { transform: translateY(-3px); background: var(--oxblood); box-shadow: 0 18px 30px rgba(74,0,0,.36); }
+.btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+.btn svg { width: 18px; height: 18px; }
 
-    .arch-shape { border-top-left-radius: 160px; border-top-right-radius: 160px; border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; }
-    .arch-full-shape { border-radius: 160px; }
+/* ---------- countdown ---------- */
+.count { text-align: center; overflow: hidden; }
+.count .in { position: relative; z-index: 1; }
+.count-bg { position: absolute; inset: 0; opacity: .5; background:
+  radial-gradient(60% 50% at 50% 55%, rgba(201,162,75,.18), transparent 70%); }
+.count-rings { position: absolute; left: 50%; top: 50%; width: 520px; max-width: none; transform: translate(-50%, -50%); color: var(--gold); opacity: .12; animation: spin 90s linear infinite; }
+@keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+.units { margin-top: 34px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.unit { display: grid; justify-items: center; gap: 10px; min-width: 0; }
+.ring { position: relative; width: min(19vw, 84px); aspect-ratio: 1; display: grid; place-items: center; }
+.ring svg { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring circle { fill: none; stroke-width: 2; }
+.ring .track { stroke: rgba(227,199,128,.35); }
+.ring .arc { stroke: var(--blush); stroke-linecap: round; transition: stroke-dashoffset .9s linear; }
+.num { font-family: var(--f-display); font-weight: 600; font-size: clamp(24px, 7.4vw, 32px); font-variant-numeric: lining-nums tabular-nums; }
+.unit .lb { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold-soft); }
+.count-note { margin-top: 28px; font-family: var(--f-display); font-style: italic; font-size: 20px; color: var(--blush); min-height: 1.4em; }
 
-    .perspective-container { perspective: 1200px; }
+/* ---------- program ---------- */
+.prog { position: relative; height: 560px; margin-top: 30px; }
+.wave { position: absolute; inset: 0; width: 100%; height: 100%; }
+.wave path { fill: none; stroke: var(--wine); stroke-width: 3; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 3.2s ease; }
+.prog.in .wave path { stroke-dashoffset: 0; }
+.stop { position: absolute; width: 46%; color: var(--wine); }
+.stop .ic { width: 78px; height: 78px; color: var(--oxblood); }
+.stop .t { font-family: var(--f-display); font-weight: 500; font-size: 38px; line-height: 1; font-variant-numeric: lining-nums; }
+.stop .w { margin-top: 6px; font-size: 13px; letter-spacing: .16em; text-transform: uppercase; color: var(--oxblood); }
+.stop.l { left: 0; top: 0; }
+.stop.m { right: 0; top: 36%; text-align: right; }
+.stop.m .ic { margin-left: auto; }
+.stop.b { left: 0; top: 69%; }
+.heart-mark { position: absolute; left: 50%; top: 54%; width: 46px; transform: translate(-50%, -50%); color: var(--wine); }
+.prog.in .heart-mark { animation: beat 1.6s ease-in-out infinite; }
+@keyframes beat { 0%,100% { transform: translate(-50%,-50%) scale(1); } 14% { transform: translate(-50%,-50%) scale(1.18); } 28% { transform: translate(-50%,-50%) scale(1); } 42% { transform: translate(-50%,-50%) scale(1.12); } }
 
-    /* 3D Скролл-анимации появления */
-    .molded-card-anim {
-      opacity: 0;
-      transform: translateY(50px) rotateX(12deg) scale(0.94);
-      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform, opacity;
-    }
+/* ---------- hosts ---------- */
+.hosts { text-align: center; padding-block: 44px 52px; }
+.hosts .h2 { font-size: clamp(30px, 8vw, 38px); }
+.hosts .sc { margin-top: 12px; font-family: var(--f-script); font-size: clamp(40px, 12vw, 54px); color: var(--wine); line-height: 1.1; }
 
-    .molded-card-anim.visible {
-      opacity: 1;
-      transform: translateY(0) rotateX(0deg) scale(1);
-    }
+/* ---------- rsvp ---------- */
+.rsvp-card {
+  max-width: 380px; margin: 0 auto;
+  background: radial-gradient(100% 50% at 50% 0%, #5e0a14 0%, var(--wine) 60%);
+  color: var(--ivory);
+  border-radius: 170px 170px 36px 36px;
+  padding: 74px 26px 34px;
+  box-shadow: 0 24px 50px rgba(58,5,8,.4);
+  text-align: center;
+}
+.rsvp-card h2 { font-family: var(--f-display); font-weight: 500; font-size: 32px; line-height: 1.12; }
+.rsvp-card .sub { margin-top: 10px; font-size: 15px; color: var(--blush); }
+.field { margin-top: 24px; }
+.field input[type="text"] {
+  width: 100%; padding: 14px 18px;
+  font: inherit; font-size: 16px; color: var(--ivory);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(233,201,196,.45);
+  border-radius: 14px;
+}
+.field input[type="text"]::placeholder { color: rgba(233,201,196,.7); }
+.field input[type="text"]:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 2px; }
+.opts { margin-top: 14px; display: grid; gap: 10px; text-align: left; }
+.opt { position: relative; display: block; }
+.opt input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.opt span {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(233,201,196,.4);
+  border-radius: 999px;
+  font-family: var(--f-display); font-size: 19px; font-weight: 500;
+  transition: background .25s ease, border-color .25s ease;
+}
+.opt span::before {
+  content: ""; flex: none; width: 22px; height: 22px; border-radius: 50%;
+  border: 2px solid var(--blush);
+  box-shadow: inset 0 0 0 4px var(--wine);
+  transition: background .25s ease, border-color .25s ease;
+}
+.opt input:checked + span { background: rgba(255,255,255,.12); border-color: var(--ivory); }
+.opt input:checked + span::before { background: var(--ivory); border-color: var(--ivory); }
+.opt input:focus-visible + span { outline: 2px solid var(--gold-soft); outline-offset: 3px; }
+.send {
+  margin-top: 22px; width: 100%;
+  padding: 16px; border: 0; border-radius: 999px;
+  background: var(--ivory); color: var(--wine);
+  font-family: var(--f-display); font-weight: 600; font-size: 19px; letter-spacing: .14em; text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.send:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.3); }
+.send:focus-visible { outline: 3px solid var(--gold-soft); outline-offset: 3px; }
+.err { margin-top: 12px; min-height: 1.3em; font-size: 14px; color: #ffd2cc; }
+.thanks { padding: 10px 0 6px; }
+.thanks .big { font-family: var(--f-script); font-size: 44px; line-height: 1.1; color: var(--gold-soft); }
+.thanks p { margin-top: 10px; font-size: 17px; }
+.thanks button { margin-top: 18px; background: none; border: 0; color: var(--blush); text-decoration: underline; font: inherit; font-size: 14px; cursor: pointer; }
 
-    /* Анимация Конверта */
-    .envelope-flap {
-      transform-origin: top;
-      transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 30;
-    }
-    .envelope-open .envelope-flap { transform: rotateX(180deg); }
-    .seal-transition { transition: all 0.5s ease-in-out; }
-    .envelope-open .seal-transition { opacity: 0; transform: scale(0.4); pointer-events: none; }
+/* ---------- footer ---------- */
+.foot { text-align: center; padding-block: 52px calc(120px + env(safe-area-inset-bottom, 0px)); }
+.foot .eyebrow { color: var(--gold-soft); }
+.foot .sc { margin-top: 14px; font-family: var(--f-script); font-size: clamp(46px, 14vw, 66px); line-height: 1.05; color: var(--ivory); }
+.foot .sm { margin-top: 24px; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: rgba(233,201,196,.6); }
 
-    @keyframes sealPulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
-      50% { transform: scale(1.05); box-shadow: 0 0 30px 10px rgba(212, 175, 55, 0.3); }
-    }
-    .seal-pulse { animation: sealPulse 2.6s infinite ease-in-out; }
+/* ---------- floating controls ---------- */
+.fabs {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  max-width: 480px; margin: 0 auto;
+  padding: 0 max(16px, env(safe-area-inset-right, 0px)) calc(14px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+  display: flex; justify-content: space-between; gap: 10px;
+  pointer-events: none;
+  opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease;
+}
+.fabs.show { opacity: 1; transform: none; }
+.fab {
+  pointer-events: auto;
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 10px 20px 10px 10px; border: 0; border-radius: 999px;
+  background: rgba(58,4,9,.92); color: var(--ivory);
+  font-family: var(--f-display); font-weight: 600; font-size: 17px; letter-spacing: .08em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0,0,0,.4);
+  backdrop-filter: blur(6px);
+}
+.fab:focus-visible { outline: 3px solid var(--gold-soft); outline-offset: 3px; }
+.fab .dot { width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--ivory); display: grid; place-items: center; }
+.fab .dot svg { width: 14px; height: 14px; }
+.fab.rs { padding-left: 20px; }
+.fab.rs svg { width: 18px; height: 18px; }
+.fab .eq { display: none; gap: 2px; align-items: flex-end; height: 14px; }
+.fab .eq i { width: 3px; background: var(--ivory); border-radius: 2px; animation: eq 1s ease-in-out infinite; }
+.fab .eq i:nth-child(2) { animation-delay: .2s; } .fab .eq i:nth-child(3) { animation-delay: .4s; }
+@keyframes eq { 0%,100% { height: 4px; } 50% { height: 14px; } }
+.fab.on .eq { display: flex; } .fab.on .ico-play { display: none; }
 
-    /* Анимированные полоски звука */
-    @keyframes soundBar {
-      0%, 100% { height: 4px; }
-      50% { height: 16px; }
-    }
-    .bar-1 { animation: soundBar 1s infinite ease-in-out 0.1s; }
-    .bar-2 { animation: soundBar 1s infinite ease-in-out 0.3s; }
-    .bar-3 { animation: soundBar 1s infinite ease-in-out 0.2s; }
+#petals { position: fixed; inset: 0; z-index: 40; pointer-events: none; width: 100%; height: 100%; }
 
-    .spin-slow { animation: spinDisc 8s linear infinite; }
-    @keyframes spinDisc { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-  </style>
-</head>
-<body class="min-h-screen flex flex-col items-center justify-start py-6 px-4 antialiased relative">
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rv { opacity: 1; transform: none; transition: none; }
+  .seal, .scroll-hint, .count-rings, .prog.in .heart-mark, .fab .eq i { animation: none; }
+  .rings circle { stroke-dashoffset: 0; animation: none !important; }
+  .rings .gem, .names .nm, .names .amp { opacity: 1 !important; transform: none !important; filter: none !important; animation: none !important; }
+  .wave path, .cal .dn path { stroke-dashoffset: 0; transition: none; }
+  .env, .env-flap { transition-duration: .01s; }
+}
+</style>
 
-  <!-- ================= CANVAS ЖИВЫХ ЧАСТИЦ (ЗОЛОТАЯ ПЫЛЬЦА) ================= -->
-  <canvas id="particlesCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-60"></canvas>
-
-  <!-- ================= 3D КОНВЕРТ С СУРГУЧНОЙ ПЕЧАТЬЮ ================= -->
-  <div id="envelopeOverlay" class="fixed inset-0 z-50 bg-[#120D0B]/98 backdrop-blur-xl flex flex-col items-center justify-center p-4 transition-all duration-1000">
-    
-    <div class="text-center mb-8 space-y-2">
-      <div class="w-14 h-14 mx-auto rounded-full border border-amber-400/60 flex items-center justify-center mb-3 bg-amber-950/50 shadow-lg">
-        <i data-lucide="crown" class="w-7 h-7 text-amber-300"></i>
-      </div>
-      <h2 class="font-serif-italic text-3xl sm:text-4xl text-amber-100 font-bold drop-shadow-md">
-        Чакыруу баракчасы
-      </h2>
-      <p class="text-[11px] sm:text-xs uppercase tracking-[0.35em] text-amber-200/90 font-medium">
-        ҮЙЛӨНҮҮ ТОЮНА ЧАКЫРУУ
-      </p>
-    </div>
-
-    <!-- 3D Конверт -->
-    <div id="envelopeWrapper" class="perspective-container relative w-full max-w-xs h-64 bg-[#3B2923] rounded-2xl shadow-2xl border border-amber-400/50 flex items-center justify-center">
-      
-      <div id="envelopeFlap" class="envelope-flap absolute top-0 left-0 right-0 h-32 bg-[#2D1E1B] rounded-t-2xl border-b border-amber-400/40 origin-top shadow-xl flex items-end justify-center pb-2" style="clip-path: polygon(0 0, 100% 0, 50% 100%);"></div>
-
-      <button id="openBtn" class="seal-transition seal-pulse z-40 relative w-24 h-24 rounded-full bg-gradient-to-br from-amber-200 via-amber-600 to-amber-950 border-2 border-amber-300 shadow-2xl flex items-center justify-center cursor-pointer active:scale-95">
-        <div class="w-18 h-18 rounded-full border border-amber-200/70 bg-amber-950/60 flex flex-col items-center justify-center text-amber-100">
-          <i data-lucide="sparkles" class="w-4 h-4 mb-0.5 text-amber-200"></i>
-          <span class="font-serif-title text-base font-bold tracking-widest uppercase">АЧУУ</span>
-        </div>
-      </button>
-
-      <div class="absolute bottom-0 left-0 right-0 h-36 bg-[#4A342D] rounded-b-2xl pointer-events-none" style="clip-path: polygon(0 100%, 50% 28%, 100% 100%); border-top: 1px solid rgba(254,243,199,0.25);"></div>
-    </div>
-
-    <p class="text-xs text-amber-100 font-medium tracking-wide mt-8 drop-shadow-sm">
-      Чакырууну ачуу үчүн «АЧУУ» баскычын басыңыз
-    </p>
+<div class="env" id="env">
+  <div class="env-layer env-l"></div>
+  <div class="env-layer env-r"></div>
+  <div class="env-layer env-b"></div>
+  <div class="env-layer env-flap"></div>
+  <div class="env-top">
+    <p class="eyebrow">Сиз чакырылдыңыз</p>
+    <p class="sc">Үйлөнүү тою</p>
   </div>
+  <svg class="crest" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+    <circle cx="100" cy="100" r="86"/><circle cx="100" cy="100" r="78" stroke-width=".8"/>
+    <g stroke-width="1.2">
+      <path d="M30 120c-6-18-4-34 6-48M36 72c-8 2-14 8-14 8M32 96c-8 0-14 4-14 4M33 112c-7 1-12 6-12 6"/>
+      <path d="M170 120c6-18 4-34-6-48M164 72c8 2 14 8 14 8M168 96c8 0 14 4 14 4M167 112c7 1 12 6 12 6"/>
+    </g>
+    <path d="M86 36l14-12 14 12-14 10z" fill="currentColor" stroke="none" opacity=".9"/>
+    <text x="100" y="116" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="58" fill="currentColor" stroke="none">Э&amp;А</text>
+    <path d="M70 140h60" stroke-width=".8"/>
+  </svg>
+  <button class="seal" id="seal" type="button" aria-label="Чакыруу катын ачуу">
+    <svg viewBox="0 0 128 128" aria-hidden="true">
+      <defs>
+        <radialGradient id="gg" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#f1dc9d"/><stop offset=".55" stop-color="#c9a24b"/><stop offset="1" stop-color="#8f6a24"/></radialGradient>
+      </defs>
+      <circle cx="64" cy="64" r="56" fill="none" stroke="url(#gg)" stroke-width="14" stroke-dasharray="11 5.6"/>
+      <circle cx="64" cy="64" r="53" fill="url(#gg)"/>
+      <circle cx="64" cy="64" r="43" fill="none" stroke="#8f6a24" stroke-width="1.6" stroke-dasharray="2 3"/>
+      <circle cx="64" cy="64" r="38" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
+    </svg>
+    <span>Басыңыз</span>
+  </button>
+</div>
 
-  <!-- ================= ПЛЕЕР МУЗЫКИ С ЭКВАЛАЙЗЕРОМ ================= -->
-  <div id="musicControls" class="fixed bottom-5 right-5 z-40 hidden flex items-center gap-2 bg-[#1C120F]/90 border border-amber-400/60 p-2 rounded-full shadow-2xl backdrop-blur-md">
-    <div id="soundWaves" class="flex items-center gap-1 px-2">
-      <span class="w-0.5 bg-amber-300 rounded-full bar-1"></span>
-      <span class="w-0.5 bg-amber-300 rounded-full bar-2"></span>
-      <span class="w-0.5 bg-amber-300 rounded-full bar-3"></span>
+<main class="stage" id="stage">
+
+  <header class="band hero" id="top">
+    <div class="in">
+      <p class="eyebrow">Үйлөнүү тоюна чакыруу</p>
+      <svg class="rings" viewBox="0 0 140 76" aria-hidden="true">
+        <circle cx="52" cy="46" r="26" pathLength="1"/>
+        <circle cx="88" cy="46" r="26" pathLength="1"/>
+        <path class="gem" d="M70 2l6 8-6 8-6-8z"/>
+      </svg>
+      <h1 class="names"><span class="nm">Элнуру</span><span class="amp">&amp;</span><span class="nm">Алия</span></h1>
+      <p class="when">8 ноябрь 2026<small>Жекшемби · 16:00</small></p>
+      <span class="scroll-hint" aria-hidden="true">↓</span>
     </div>
-    <button id="musicToggleBtn" class="w-10 h-10 rounded-full bg-[#2D1E1B] text-amber-200 flex items-center justify-center active:scale-90 transition-transform">
-      <i data-lucide="disc" id="musicIcon" class="w-5 h-5 spin-slow"></i>
-    </button>
-  </div>
+  </header>
 
-  <audio id="bgMusic" loop preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
-  </audio>
+  <section class="band ivory lead">
+    <div class="in">
+      <h2 class="h2 rv">Урматтуу конокторлор!</h2>
+      <p class="rv d1">Урматтуу туугандар, достор жана жакындар! Сиздерди Элнуру менен Алиянын үйлөнүү тоюна чакырабыз.</p>
+      <p class="rv d2">Эки жүрөк бир үй-бүлөгө айланган кубанычтуу күндү биз менен бирге тосуп, тилек-баталарыңызды айтып, дасторконубуздан даам татууңузду күтөбүз.</p>
+      <svg class="orn rv d3" viewBox="0 0 120 20" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 10h44M74 10h44"/><path d="M60 3c4 5 4 9 0 14-4-5-4-9 0-14z" fill="currentColor"/><circle cx="52" cy="10" r="2" fill="currentColor"/><circle cx="68" cy="10" r="2" fill="currentColor"/></svg>
+    </div>
+  </section>
 
-  <!-- ================= ОСНОВНОЙ ИНТЕРАКТИВНЫЙ КОНТЕНТ ================= -->
-  <main class="perspective-container w-full max-w-sm mx-auto flex flex-col items-center space-y-10 text-center pt-2 z-10">
-
-    <!-- 1. ГЛАВНАЯ КАРТОЧКА -->
-    <section class="molded-card-anim molded-frame arch-shape w-full p-8 flex flex-col items-center space-y-5 pt-10">
-      
-      <div class="corner-ornament corner-tl"></div>
-      <div class="corner-ornament corner-tr"></div>
-      <div class="corner-ornament corner-bl"></div>
-      <div class="corner-ornament corner-br"></div>
-
-      <!-- Монограмма E & A -->
-      <div class="w-16 h-16 rounded-full border-2 border-amber-800/80 p-1 flex items-center justify-center bg-amber-900/10 shadow-inner my-1">
-        <div class="w-full h-full rounded-full border border-amber-800/50 flex items-center justify-center">
-          <span class="font-serif-title text-xl font-bold gold-foil-dark">Э & А</span>
-        </div>
+  <section class="band ivory" style="padding-top:8px">
+    <div class="in cal-wrap">
+      <div class="cal rv" id="cal">
+        <div class="cal-head"><span>Ноябрь</span><span>2026</span></div>
+        <div class="cal-grid" id="calGrid" role="grid" aria-label="2026-жылдын ноябрь айы"></div>
+        <div class="cal-time"><span>Башталышы</span><b>16:00</b></div>
       </div>
+    </div>
+  </section>
 
-      <span class="text-[11px] uppercase tracking-[0.38em] text-stone-800 font-bold">Үйлөнүү үлпөтүнө чакыруу</span>
-      
-      <!-- ГРАНДИОЗНЫЙ ЗАГОЛОВОК -->
-      <div class="py-1">
-        <h1 class="font-serif-title text-5xl sm:text-6xl font-bold leading-none tracking-tight gold-foil-text">
-          Элнуру
-        </h1>
-        <div class="font-script text-4xl text-amber-900 my-1 font-bold">&</div>
-        <h1 class="font-serif-title text-5xl sm:text-6xl font-bold leading-none tracking-tight gold-foil-text">
-          Алия
-        </h1>
-      </div>
-
-      <!-- ФОТО ЗАГЛУШКА 1: Главное фото пары -->
-      <div class="w-full h-52 rounded-2xl overflow-hidden border-2 border-amber-600/50 shadow-lg relative my-1 group">
-        <!-- ФОТО: Замените src ниже на фото жениха и невесты -->
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Элнуру & Алия" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-        <span class="absolute bottom-2 right-3 text-[10px] text-amber-200/90 tracking-widest font-serif-italic">08.11.2026</span>
-      </div>
-
-      <p class="font-serif-italic text-3xl font-bold text-[#211310]">
-        Урматтуу коноктор!
-      </p>
-
-      <p class="text-xs text-stone-900 font-semibold leading-relaxed tracking-wide uppercase px-2">
-        Сиздерди уулубуз Элнуру менен келинибиз Алиянын үйлөнүү тойуна арналган салтанаттуу дасторконубузга кадырлуу конок болуп кетүүгө чакырабыз.
-      </p>
-    </section>
-
-    <!-- 2. ИНТЕРАКТИВНЫЙ ТАЙМЕР ОБРАТНОГО ОТСЧЕТА -->
-    <section class="molded-card-anim molded-frame-dark rounded-3xl w-full p-6 space-y-4">
-      <div class="corner-ornament corner-tl"></div>
-      <div class="corner-ornament corner-tr"></div>
-      <div class="corner-ornament corner-bl"></div>
-      <div class="corner-ornament corner-br"></div>
-
-      <span class="text-[10px] uppercase tracking-[0.3em] text-amber-300 font-semibold block">Тойго чейин калды:</span>
-
-      <div class="grid grid-cols-4 gap-2 pt-1 text-stone-100">
-        <div class="bg-black/50 border border-amber-500/30 p-2.5 rounded-xl">
-          <span id="timerDays" class="font-serif-title text-2xl font-bold text-amber-200 block">00</span>
-          <span class="text-[9px] uppercase tracking-wider text-stone-400">Күн</span>
-        </div>
-        <div class="bg-black/50 border border-amber-500/30 p-2.5 rounded-xl">
-          <span id="timerHours" class="font-serif-title text-2xl font-bold text-amber-200 block">00</span>
-          <span class="text-[9px] uppercase tracking-wider text-stone-400">Саат</span>
-        </div>
-        <div class="bg-black/50 border border-amber-500/30 p-2.5 rounded-xl">
-          <span id="timerMinutes" class="font-serif-title text-2xl font-bold text-amber-200 block">00</span>
-          <span class="text-[9px] uppercase tracking-wider text-stone-400">Мин</span>
-        </div>
-        <div class="bg-black/50 border border-amber-500/30 p-2.5 rounded-xl">
-          <span id="timerSeconds" class="font-serif-title text-2xl font-bold text-amber-200 block">00</span>
-          <span class="text-[9px] uppercase tracking-wider text-stone-400">Сек</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. БЛОК ДАТЫ И КАЛЕНДАРЯ -->
-    <section class="molded-card-anim molded-frame-dark arch-full-shape w-full p-8 flex flex-col items-center space-y-6 pt-12 pb-12 text-stone-100">
-      
-      <div class="corner-ornament corner-tl"></div>
-      <div class="corner-ornament corner-tr"></div>
-      <div class="corner-ornament corner-bl"></div>
-      <div class="corner-ornament corner-br"></div>
-
-      <!-- ФОТО ЗАГЛУШКА 2: Руки с кольцами -->
-      <div class="w-24 h-24 rounded-full border-2 border-amber-300/80 p-1 shadow-2xl overflow-hidden mb-1 group">
-        <!-- ФОТО: Замените src ниже на фото колец/деталей -->
-        <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=400&q=80" alt="Wedding Detail" class="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-500">
-      </div>
-
-      <span class="font-serif-italic text-3xl font-bold text-amber-200">Өтүү күнү:</span>
-
-      <div class="uppercase tracking-[0.35em] text-xs text-amber-200 font-semibold">
-        Н О Я Б Р Ь
-      </div>
-
-      <div class="flex items-center justify-center gap-3 text-lg font-serif-title tracking-wider my-1">
-        <span class="text-stone-500">6</span>
-        <span class="text-stone-400">7</span>
-        
-        <div class="relative px-3.5 py-1.5 flex items-center justify-center">
-          <svg class="absolute inset-0 w-full h-full text-amber-300 drop-shadow-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-          <span class="text-2xl font-bold text-white z-10">8</span>
-        </div>
-        
-        <span class="text-stone-400">9</span>
-        <span class="text-stone-500">10</span>
-      </div>
-
-      <div class="text-xs font-medium text-stone-200 tracking-widest uppercase">
-        саат <span class="text-base font-serif-title text-amber-300 font-bold">16:00</span>
-      </div>
-
-      <div class="font-serif-title text-4xl font-bold tracking-widest text-amber-100">
-        2026
-      </div>
-
-      <div class="w-full text-[11px] tracking-[0.2em] uppercase text-stone-300 font-medium space-y-2 pt-2">
-        <div>Д ү й ш ө м б ү</div>
-        <div>Ш е й ш е м б и</div>
-        <div>Ш а р ш е м б и</div>
-        <div>Б е й ш е м б и</div>
-        <div>Ж у м а</div>
-        <div>И ш е м б и</div>
-        <div class="py-1 px-4 border border-amber-300 rounded-md text-amber-200 font-bold inline-block mt-1 bg-amber-950/80 shadow-lg">
-          Ж Е К Ш Е М Б И
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. ИНТЕРАКТИВНАЯ ПРОГРАММА ДНЯ (TIMELINE) -->
-    <section class="molded-card-anim molded-frame rounded-3xl p-6 space-y-5 text-left">
-      <div class="corner-ornament corner-tl"></div>
-      <div class="corner-ornament corner-tr"></div>
-      <div class="corner-ornament corner-bl"></div>
-      <div class="corner-ornament corner-br"></div>
-
-      <div class="text-center">
-        <span class="text-[10px] uppercase tracking-widest text-stone-700 font-bold">Иш-чаранын графиги</span>
-        <h3 class="font-serif-title text-3xl font-bold text-[#211310] mt-1">Программа</h3>
-      </div>
-
-      <div class="space-y-4 pt-2 relative before:absolute before:left-6 before:top-3 before:bottom-3 before:w-0.5 before:bg-amber-800/30">
-        
-        <div class="flex items-start gap-4 relative z-10">
-          <div class="w-12 h-12 rounded-full bg-[#211310] text-amber-300 flex items-center justify-center shrink-0 border border-amber-400/40 shadow-md">
-            <i data-lucide="wine" class="w-5 h-5"></i>
-          </div>
-          <div class="pt-1">
-            <span class="text-xs font-bold text-amber-900 block">16:00</span>
-            <h4 class="font-bold text-sm text-[#211310]">Конокторду тосуу / Welcome Drink</h4>
-            <p class="text-[11px] text-stone-600 mt-0.5">Фуршет, сүрөткө түшүү жана жагымдуу музыка</p>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-4 relative z-10">
-          <div class="w-12 h-12 rounded-full bg-[#211310] text-amber-300 flex items-center justify-center shrink-0 border border-amber-400/40 shadow-md">
-            <i data-lucide="sparkle" class="w-5 h-5"></i>
-          </div>
-          <div class="pt-1">
-            <span class="text-xs font-bold text-amber-900 block">17:00</span>
-            <h4 class="font-bold text-sm text-[#211310]">Салтанаттуу ачылыш</h4>
-            <p class="text-[11px] text-stone-600 mt-0.5">Жаштардын кирип келиши жана тосттор</p>
-          </div>
-        </div>
-
-        <div class="flex items-start gap-4 relative z-10">
-          <div class="w-12 h-12 rounded-full bg-[#211310] text-amber-300 flex items-center justify-center shrink-0 border border-amber-400/40 shadow-md">
-            <i data-lucide="utensils-crossed" class="w-5 h-5"></i>
-          </div>
-          <div class="pt-1">
-            <span class="text-xs font-bold text-amber-900 block">18:00</span>
-            <h4 class="font-bold text-sm text-[#211310]">Той дасторкону</h4>
-            <p class="text-[11px] text-stone-600 mt-0.5">Шоу-программа, бий жана куттуктоолор</p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 5. ДРЕСС-КОД И ПОЛАРОИД ФОТО-СЕТКА -->
-    <section class="molded-card-anim molded-frame rounded-3xl p-6 space-y-4 text-center">
-      <div class="corner-ornament corner-tl"></div>
-      <div class="corner-ornament corner-tr"></div>
-      <div class="corner-ornament corner-bl"></div>
-      <div class="corner-ornament corner-br"></div>
-
-      <span class="text-[10px] uppercase tracking-widest text-stone-700 font-bold">Коноктор үчүн</span>
-      <h3 class="font-serif-title text-3xl font-bold text-[#211310]">Дресс-код</h3>
-      <p class="text-xs text-stone-700 font-medium">Биздин тойдун түстөр палитрасына ылайык кийинип келсеңиздер кубанычта болобуз</p>
-
-      <!-- Кружки палитры -->
-      <div class="flex items-center justify-center gap-3 py-2">
-        <div class="w-8 h-8 rounded-full bg-[#211310] border-2 border-amber-400 shadow-md" title="Шоколадный"></div>
-        <div class="w-8 h-8 rounded-full bg-[#8C7663] border-2 border-amber-400 shadow-md" title="Бежевый"></div>
-        <div class="w-8 h-8 rounded-full bg-[#D4AF37] border-2 border-amber-400 shadow-md" title="Золотой"></div>
-        <div class="w-8 h-8 rounded-full bg-[#FAF6F0] border-2 border-amber-400 shadow-md" title="Кремовый"></div>
-      </div>
-
-      <!-- ФОТО ЗАГЛУШКИ 3 & 4: Примеры образов (Сетка) -->
-      <div class="grid grid-cols-2 gap-2 pt-2">
-        <div class="bg-white p-2 border border-stone-300 shadow-md rounded-xl transform -rotate-2">
-          <!-- ФОТО: Образ для женщин -->
-          <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=400&q=80" alt="Dress Code 1" class="w-full h-32 object-cover rounded-lg">
-          <span class="text-[10px] font-bold text-stone-700 block mt-1">Айымдар үчүн</span>
-        </div>
-        <div class="bg-white p-2 border border-stone-300 shadow-md rounded-xl transform rotate-2">
-          <!-- ФОТО: Образ для мужчин -->
-          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80" alt="Dress Code 2" class="w-full h-32 object-cover rounded-lg">
-          <span class="text-[10px] font-bold text-stone-700 block mt-1">Мырзалар үчүн</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. БЛОК РЕСТОРАНА "АК САРАЙ" -->
-    <section class="molded-card-anim molded-frame rounded-3xl p-6 space-y-4 text-center">
-      <div class="corner-ornament corner-tl"></div>
-      <div class="corner-ornament corner-tr"></div>
-      <div class="corner-ornament corner-bl"></div>
-      <div class="corner-ornament corner-br"></div>
-
-      <!-- ФОТО ЗАГЛУШКА 5: Ресторан -->
-      <div class="w-full h-44 rounded-2xl overflow-hidden border border-amber-600/40 shadow-md relative group">
-        <!-- ФОТО: Замените src ниже на фото зала ресторана -->
-        <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Ресторан Ак Сарай" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-        <div class="absolute inset-0 bg-black/20"></div>
-      </div>
-
-      <div class="space-y-1 pt-1">
-        <span class="text-[10px] uppercase tracking-widest text-stone-700 font-bold">Дарегибиз</span>
-        <h3 class="font-serif-title text-3xl font-bold text-[#211310]">Ресторан «Ак Сарай»</h3>
-        <p class="text-xs text-stone-800 font-medium">Бишкек шаары</p>
-      </div>
-
-      <a href="https://2gis.kg/bishkek/search/%D0%90%D0%BA%20%D0%A1%D0%B0%D1%80%D0%B0%D0%B9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 rounded-xl font-bold text-xs text-amber-100 bg-[#211310] hover:bg-stone-900 transition-colors shadow-lg uppercase tracking-wider border border-amber-400/50">
-        <i data-lucide="map-pin" class="w-4 h-4 text-amber-300"></i>
-        <span>2GIS Картаны ачуу</span>
+  <section class="band ivory venue" style="padding-top:20px">
+    <div class="in">
+      <h2 class="h2 rv">Дарегибиз:</h2>
+      <p class="city rv d1">Бишкек шаары</p>
+      <p class="place rv d1">Ак Сарай<small>ресторану</small></p>
+      <a class="btn rv d2" href="https://www.google.com/maps/search/?api=1&amp;query=%D0%90%D0%BA+%D0%A1%D0%B0%D1%80%D0%B0%D0%B9+%D1%80%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0%D0%BD+%D0%91%D0%B8%D1%88%D0%BA%D0%B5%D0%BA" target="_blank" rel="noopener">
+        Картаны ачуу
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
       </a>
-    </section>
+    </div>
+  </section>
 
-    <!-- 7. РАСШИРЕННАЯ ФОРМА ПОДТВЕРЖДЕНИЯ RSVP -->
-    <section class="molded-card-anim molded-frame arch-shape p-6 space-y-4 text-left pt-10">
-      <div class="corner-ornament corner-tl"></div>
-      <div class="corner-ornament corner-tr"></div>
-      <div class="corner-ornament corner-bl"></div>
-      <div class="corner-ornament corner-br"></div>
-
-      <div class="text-center space-y-2">
-        <p class="font-serif-italic text-2xl font-bold text-[#211310] leading-snug">
-          Урматтуу конок, келериңизди ырастап коюңузду суранабыз
-        </p>
+  <section class="band dark count" id="count">
+    <div class="count-bg"></div>
+    <svg class="count-rings" viewBox="0 0 140 76" fill="none" stroke="currentColor" stroke-width=".5" aria-hidden="true"><circle cx="52" cy="38" r="26"/><circle cx="88" cy="38" r="26"/></svg>
+    <div class="in">
+      <h2 class="h2 rv">Тойго калды:</h2>
+      <div class="units rv d1" role="timer" aria-live="off">
+        <div class="unit"><div class="ring"><svg viewBox="0 0 84 84"><circle class="track" cx="42" cy="42" r="40"/></svg><span class="num" id="cd-d">0</span></div><span class="lb">Күн</span></div>
+        <div class="unit"><div class="ring"><svg viewBox="0 0 84 84"><circle class="track" cx="42" cy="42" r="40"/></svg><span class="num" id="cd-h">0</span></div><span class="lb">Саат</span></div>
+        <div class="unit"><div class="ring"><svg viewBox="0 0 84 84"><circle class="track" cx="42" cy="42" r="40"/></svg><span class="num" id="cd-m">0</span></div><span class="lb">Мүнөт</span></div>
+        <div class="unit"><div class="ring"><svg viewBox="0 0 84 84"><circle class="track" cx="42" cy="42" r="40"/><circle class="arc" id="cd-ring" cx="42" cy="42" r="40" stroke-dasharray="251.3" stroke-dashoffset="0"/></svg><span class="num" id="cd-s">0</span></div><span class="lb">Секунд</span></div>
       </div>
+      <p class="count-note" id="cd-note"></p>
+    </div>
+  </section>
 
-      <form id="rsvpForm" class="space-y-3.5 pt-2">
-        <div>
-          <label class="block text-[10px] uppercase tracking-wider text-stone-800 font-bold mb-1">Аты-жөнүңүз</label>
-          <input type="text" required placeholder="Мисалы: Асан & Айгүл" class="w-full bg-white border border-stone-400 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 font-medium outline-none focus:border-amber-800 transition-colors">
+  <section class="band ivory">
+    <div class="in">
+      <h2 class="h2 rv">Той программасы:</h2>
+      <div class="prog" id="prog">
+        <svg class="wave" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M50 0C96 10 96 24 50 36S4 62 50 74S96 90 50 100"/></svg>
+        <div class="stop l rv">
+          <svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><g transform="rotate(-8 20 30)"><path d="M10 8h14l-2 19a5 5 0 0 1-10 0z"/><path d="M11 15c4-2 8 2 12 0M17 32v18M11 52h12"/></g><g transform="rotate(8 46 30)"><path d="M38 8h14l-2 19a5 5 0 0 1-10 0z"/><path d="M39 15c4-2 8 2 12 0M45 32v18M39 52h12"/></g><path d="M26 36c-3 4 0 7 6 5s9-1 7-5" /></svg>
+          <p class="t">15:30</p><p class="w">Конокторду тосуп алуу</p>
         </div>
-
-        <div>
-          <label class="block text-[10px] uppercase tracking-wider text-stone-800 font-bold mb-1">Катышууңуз</label>
-          <select class="w-full bg-white border border-stone-400 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 font-medium outline-none focus:border-amber-800 transition-colors">
-            <option value="yes">Ооба, сөзсүз барам</option>
-            <option value="couple">Жубайым/жолдошум менен барам</option>
-            <option value="no">Келе албайм</option>
-          </select>
+        <div class="stop m rv d1">
+          <svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="38" r="15"/><circle cx="40" cy="38" r="15"/><path d="M32 6l5 7-5 7-5-7z" fill="currentColor"/></svg>
+          <p class="t">16:00</p><p class="w">Тойдун башталышы</p>
         </div>
-
-        <div>
-          <label class="block text-[10px] uppercase tracking-wider text-stone-800 font-bold mb-1">Суусундук тандооңуз</label>
-          <select class="w-full bg-white border border-stone-400 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 font-medium outline-none focus:border-amber-800 transition-colors">
-            <option value="wine">Вино / Шампанское</option>
-            <option value="strong">Күчтүү ичимдиктер</option>
-            <option value="soft">Алкоголсуз суусундуктар</option>
-          </select>
+        <div class="stop b rv d1">
+          <svg class="ic" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="32" cy="32" r="16"/><circle cx="32" cy="32" r="11"/><path d="M8 12v14c0 3 2 4 4 4s4-1 4-4V12M12 12v40M56 12c-4 4-5 10-5 18h5M56 12v40"/></svg>
+          <p class="t">16:30</p><p class="w">Дасторкон</p>
         </div>
+        <svg class="heart-mark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8-5.4-8-11.2C4 6.6 6.2 5 8.3 5c1.5 0 2.9.8 3.7 2.2C12.8 5.8 14.2 5 15.700 5 17.800 5 20 6.600 20 9.800 20 15.600 12 21 12 21z"/></svg>
+      </div>
+    </div>
+  </section>
 
-        <button type="submit" class="w-full py-3.5 bg-[#211310] hover:bg-stone-900 text-amber-100 font-bold text-xs uppercase tracking-wider rounded-xl transition-colors shadow-lg border border-amber-400/50">
-          Ырастоо
-        </button>
+  <section class="band ivory hosts" style="padding-top:8px">
+    <div class="in">
+      <h2 class="h2 rv">Той ээлери:</h2>
+      <p class="sc rv d1">Азамат &amp; Кымбат</p>
+    </div>
+  </section>
+
+  <section class="band dark" id="rsvp">
+    <div class="in">
+      <form class="rsvp-card rv" id="rsvpForm" novalidate>
+        <div id="formBody">
+          <h2>Катышууңузду ырастаңыз</h2>
+          <p class="sub">Келерңизди алдын ала билсек, даярдануубуз оңой болот</p>
+          <div class="field">
+            <input type="text" id="gname" name="gname" placeholder="Атыңыз жана фамилияңыз" autocomplete="name" aria-label="Атыңыз жана фамилияңыз">
+            <div class="opts" role="radiogroup" aria-label="Тойго келесизби?">
+              <label class="opt"><input type="radio" name="att" value="yes" checked><span>Ооба, барам!</span></label>
+              <label class="opt"><input type="radio" name="att" value="plus"><span>Жубайым менен барам</span></label>
+              <label class="opt"><input type="radio" name="att" value="no"><span>Өкүнүчтүүсү, кела албайм</span></label>
+            </div>
+          </div>
+          <button class="send" type="submit">Жооп берүү</button>
+          <p class="err" id="err" role="alert"></p>
+        </div>
+        <div class="thanks" id="thanks" hidden>
+          <p class="big">Рахмат!</p>
+          <p id="thanksText"></p>
+          <button type="button" id="redo">Жоопту өзгөртүү</button>
+        </div>
       </form>
+    </div>
+  </section>
 
-      <div id="rsvpSuccess" class="hidden text-center py-4 text-xs text-emerald-900 font-bold">
-        Ырахмат! Жообуңуз кабыл алынды.
-      </div>
-    </section>
+  <footer class="band dark foot" style="padding-top:8px">
+    <div class="in">
+      <p class="eyebrow rv">Урмат менен</p>
+      <p class="sc rv d1">Элнуру &amp; Алия</p>
+      <p class="sm rv d2">8.11.2026 · Бишкек</p>
+    </div>
+  </footer>
+</main>
 
-    <!-- 8. ТОЙ ЭЭЛЕРИ -->
-    <section class="molded-card-anim molded-frame rounded-3xl p-8 space-y-3">
-      <div class="corner-ornament corner-tl"></div>
-      <div class="corner-ornament corner-tr"></div>
-      <div class="corner-ornament corner-bl"></div>
-      <div class="corner-ornament corner-br"></div>
+<div class="fabs" id="fabs">
+  <button class="fab" id="music" type="button" aria-pressed="false">
+    <span class="dot"><svg class="ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span></span>
+    Музыка
+  </button>
+  <a class="fab rs" href="#rsvp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H8l-4 4V5a1 1 0 0 1 1-1z"/></svg>
+    Жооп
+  </a>
+</div>
 
-      <p class="font-serif-italic text-2xl font-bold text-[#211310]">
-        Сый урматы менен той ээлери:
-      </p>
+<canvas id="petals" aria-hidden="true"></canvas>
 
-      <div class="font-serif-title text-3xl font-bold tracking-widest gold-foil-dark uppercase">
-        Азамат & Кымбат
-      </div>
-    </section>
+<script>
+(function () {
+  var $ = function (s) { return document.querySelector(s); };
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var stage = $('#stage'), env = $('#env'), body = document.body;
+  body.classList.add('locked');
 
-    <footer class="text-[10px] text-amber-200/80 font-medium uppercase tracking-widest pt-2 pb-8">
-      Элнуру & Алия • 2026
-    </footer>
+  /* torn paper edge */
+  (function () {
+    var pts = ['0% 100%'], n = 44, seed = 7;
+    function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+    for (var i = 0; i <= n; i++) pts.push((i / n * 100).toFixed(2) + '% ' + (12 + rnd() * 62).toFixed(1) + '%');
+    pts.push('100% 100%');
+    document.documentElement.style.setProperty('--torn', 'polygon(' + pts.join(',') + ')');
+  })();
 
-  </main>
-
-  <script>
-    lucide.createIcons();
-
-    // 1. АНИМАЦИЯ ЗОЛОТИСТОЙ ПЫЛИ (PARTICLES CANVAS)
-    const canvas = document.getElementById('particlesCanvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+  /* calendar: November 2026 starts on Sunday */
+  (function () {
+    var g = $('#calGrid'), html = '';
+    ['ДШ','ШШ','ШР','БШ','ЖМ','ИШ','ЖК'].forEach(function (d) { html += '<div class="dw">' + d + '</div>'; });
+    for (var b = 0; b < 6; b++) html += '<div></div>';
+    for (var d = 1; d <= 30; d++) {
+      if (d === 8) html += '<div class="dn on"><svg viewBox="0 0 40 40" aria-hidden="true"><path pathLength="1" d="M20 35S5 26 5 15C5 9.500 9 6 13 6c3 0 5.500 1.800 7 4.500C21.500 7.800 24 6 27 6c4 0 8 3.500 8 9 0 11-15 20-15 20z"/></svg>8</div>';
+      else html += '<div class="dn">' + d + '</div>';
     }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    g.innerHTML = html;
+  })();
 
-    for (let i = 0; i < 35; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        radius: Math.random() * 2 + 0.5,
-        alpha: Math.random() * 0.6 + 0.2,
-        speedY: Math.random() * 0.4 + 0.1,
-        speedX: (Math.random() - 0.5) * 0.3
-      });
-    }
+  /* reveal on scroll */
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .18 }) : null;
+  document.querySelectorAll('.rv, #prog').forEach(function (el) { io ? io.observe(el) : el.classList.add('in'); });
 
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
-        p.y -= p.speedY;
-        p.x += p.speedX;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.x < 0 || p.x > canvas.width) p.x = Math.random() * canvas.width;
+  /* countdown to 8 Nov 2026 16:00, Bishkek (UTC+6) */
+  var target = Date.UTC(2026, 10, 8, 10, 0, 0);
+  var ids = { d: $('#cd-d'), h: $('#cd-h'), m: $('#cd-m'), s: $('#cd-s') }, ring = $('#cd-ring'), note = $('#cd-note');
+  function tick() {
+    var diff = Math.max(0, target - Date.now());
+    var s = Math.floor(diff / 1000);
+    ids.d.textContent = Math.floor(s / 86400);
+    ids.h.textContent = Math.floor(s % 86400 / 3600);
+    ids.m.textContent = Math.floor(s % 3600 / 60);
+    ids.s.textContent = s % 60;
+    ring.style.strokeDashoffset = (251.3 * (1 - (60 - s % 60) / 60)).toFixed(1);
+    if (diff === 0) note.textContent = 'Той башталды!';
+    else if (s < 86400 * 30) note.textContent = 'Биз силерди зарыгып күтүп жатабыз';
+  }
+  tick(); setInterval(tick, 1000);
 
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(212, 175, 55, ${p.alpha})`;
-        ctx.fill();
-      });
-      requestAnimationFrame(animateParticles);
-    }
-    animateParticles();
+  /* RSVP (answers stay on this page) */
+  var form = $('#rsvpForm'), thanks = $('#thanks'), fb = $('#formBody'), err = $('#err');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = $('#gname').value.trim();
+    if (!name) { err.textContent = 'Атыңызды жазыңыз.'; $('#gname').focus(); return; }
+    var v = form.querySelector('input[name="att"]:checked').value;
+    $('#thanksText').textContent = v === 'no'
+      ? name + ', түшүнүктүү. Тилектериңиз үчүн ыраазычылык билдиребиз.'
+      : name + ', сизди тойдо күтөбүз!';
+    err.textContent = ''; fb.hidden = true; thanks.hidden = false;
+  });
+  $('#redo').addEventListener('click', function () { thanks.hidden = true; fb.hidden = false; $('#gname').focus(); });
 
-    // 2. ТАЙМЕР ОБРАТНОГО ОТСЧЕТА
-    const targetDate = new Date('2026-11-08T16:00:00').getTime();
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
+  /* gentle generated music */
+  var ac, master, timer = null, step = 0, musicBtn = $('#music');
+  var chords = [[220, 261.63, 329.63], [174.61, 220, 261.63], [261.63, 329.63, 392], [196, 246.94, 293.66]];
+  var pat = [0, 1, 2, 1, 2, 1, 0, 2];
+  function bell(f, t, peak, dur, type) {
+    var o = ac.createOscillator(), g = ac.createGain();
+    o.type = type || 'sine'; o.frequency.value = f;
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(peak, t + 0.03);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+    o.connect(g); g.connect(master); o.start(t); o.stop(t + dur + 0.05);
+  }
+  function play() {
+    var t = ac.currentTime + 0.05, ch = chords[Math.floor(step / 8) % 4], i = step % 8;
+    if (i === 0) bell(ch[0] / 2, t, 0.16, 3.4);
+    bell(ch[pat[i]] * 2, t, 0.09, 2.2);
+    bell(ch[pat[i]] * 4, t, 0.015, 1.1, 'triangle');
+    step++;
+  }
+  function startMusic() {
+    try {
+      if (!ac) { ac = new (window.AudioContext || window.webkitAudioContext)(); master = ac.createGain(); master.gain.value = 0.55; master.connect(ac.destination); }
+      if (ac.state === 'suspended') ac.resume();
+      if (!timer) { play(); timer = setInterval(play, 520); }
+      musicBtn.classList.add('on'); musicBtn.setAttribute('aria-pressed', 'true');
+    } catch (x) {}
+  }
+  function stopMusic() {
+    if (timer) { clearInterval(timer); timer = null; }
+    musicBtn.classList.remove('on'); musicBtn.setAttribute('aria-pressed', 'false');
+  }
+  musicBtn.addEventListener('click', function () { timer ? stopMusic() : startMusic(); });
 
-      if (diff > 0) {
-        document.getElementById('timerDays').innerText = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, '0');
-        document.getElementById('timerHours').innerText = String(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, '0');
-        document.getElementById('timerMinutes').innerText = String(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
-        document.getElementById('timerSeconds').innerText = String(Math.floor((diff % (1000 * 60)) / 1000)).padStart(2, '0');
-      }
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    // 3. СКРОЛЛ И ОБСЕРВЕР ДЛЯ ПЛАШЕК
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.molded-card-anim').forEach(el => observer.observe(el));
-
-    // 4. КОНВЕРТ И МУЗЫКА
-    const openBtn = document.getElementById('openBtn');
-    const envelopeOverlay = document.getElementById('envelopeOverlay');
-    const envelopeWrapper = document.getElementById('envelopeWrapper');
-    const bgMusic = document.getElementById('bgMusic');
-    const musicControls = document.getElementById('musicControls');
-    const musicToggleBtn = document.getElementById('musicToggleBtn');
-    const musicIcon = document.getElementById('musicIcon');
-    const soundWaves = document.getElementById('soundWaves');
-    let isPlaying = false;
-
-    openBtn.addEventListener('click', () => {
-      envelopeWrapper.classList.add('envelope-open');
-
-      bgMusic.play().then(() => { isPlaying = true; }).catch(err => console.log(err));
-      musicControls.classList.remove('hidden');
-
-      setTimeout(() => {
-        envelopeOverlay.style.opacity = '0';
-        envelopeOverlay.style.pointerEvents = 'none';
-      }, 750);
-
-      setTimeout(() => {
-        envelopeOverlay.classList.add('hidden');
-        document.querySelectorAll('.molded-card-anim').forEach(el => el.classList.add('visible'));
-      }, 1250);
+  /* falling petals and hearts */
+  var cv = $('#petals'), cx = cv.getContext('2d'), W = 0, H = 0, dpr = 1, parts = [], running = false;
+  var cols = ['rgba(201,162,75,.6)', 'rgba(233,201,196,.65)', 'rgba(150,25,40,.6)', 'rgba(248,243,234,.55)'];
+  function resize() { dpr = Math.min(2, window.devicePixelRatio || 1); W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+  function mk(y) { return { x: Math.random() * W, y: y, r: 5 + Math.random() * 8, v: .35 + Math.random() * .8, sw: Math.random() * 6, sa: .4 + Math.random() * .9, rot: Math.random() * 6.28, rv: (Math.random() - .5) * .03, c: cols[Math.floor(Math.random() * cols.length)], heart: Math.random() < .3 }; }
+  function draw() {
+    if (!running) return;
+    cx.clearRect(0, 0, W, H);
+    parts.forEach(function (p) {
+      p.y += p.v; p.sw += .012; p.rot += p.rv;
+      var x = p.x + Math.sin(p.sw) * 28 * p.sa;
+      if (p.y > H + 20) { p.y = -20; p.x = Math.random() * W; }
+      cx.save(); cx.translate(x, p.y); cx.rotate(p.rot); cx.fillStyle = p.c; cx.beginPath();
+      if (p.heart) {
+        var r = p.r * .6; cx.moveTo(0, r * 1.2); cx.bezierCurveTo(-r * 2, -r * .2, -r * .9, -r * 1.6, 0, -r * .5); cx.bezierCurveTo(r * .9, -r * 1.6, r * 2, -r * .2, 0, r * 1.2);
+      } else { cx.ellipse(0, 0, p.r * .45, p.r, 0, 0, 6.28); }
+      cx.fill(); cx.restore();
     });
+    requestAnimationFrame(draw);
+  }
+  function startPetals() {
+    if (reduce || running) return;
+    resize(); parts = []; for (var i = 0; i < 22; i++) parts.push(mk(Math.random() * H));
+    running = true; draw();
+  }
+  addEventListener('resize', function () { if (running) resize(); });
+  document.addEventListener('visibilitychange', function () { if (document.hidden) running = false; else if (!reduce && parts.length) { running = true; draw(); } });
 
-    musicToggleBtn.addEventListener('click', () => {
-      if (isPlaying) {
-        bgMusic.pause();
-        musicIcon.classList.remove('spin-slow');
-        soundWaves.classList.add('opacity-30');
-      } else {
-        bgMusic.play();
-        musicIcon.classList.add('spin-slow');
-        soundWaves.classList.remove('opacity-30');
-      }
-      isPlaying = !isPlaying;
-    });
+  /* open the envelope */
+  var opened = false;
+  function open() {
+    if (opened) return; opened = true;
+    env.classList.add('opening');
+    startMusic();
+    setTimeout(function () {
+      env.classList.add('gone');
+      body.classList.remove('locked');
+      stage.classList.add('live');
+      $('#fabs').classList.add('show');
+      startPetals();
+    }, reduce ? 50 : 1250);
+    setTimeout(function () { env.style.display = 'none'; }, reduce ? 200 : 2500);
+  }
+  $('#seal').addEventListener('click', open);
+})();
+</script>
 
-    document.getElementById('rsvpForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('rsvpForm').classList.add('hidden');
-      document.getElementById('rsvpSuccess').classList.remove('hidden');
-    });
-  </script>
-</body>
-</html>
+</body></html>
