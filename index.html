@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Элнур & Алия — Тойго чакыруу</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Cormorant Garamond & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0f1412;
+      color: #f3f4f6;
+    }
+    .font-serif-title {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #f3e7e1 0%, #d4af37 50%, #aa7c11 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border {
+      border-color: rgba(212, 175, 55, 0.3);
+    }
+    .gold-btn {
+      background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start pb-16 antialiased selection:bg-amber-500/20">
+
+  <!-- Main Container (Mobile First Layout) -->
+  <main class="w-full max-w-md mx-auto px-4 py-8 flex flex-col items-center text-center space-y-10">
+
+    <!-- Hero Section -->
+    <section class="w-full border gold-border rounded-3xl p-8 bg-zinc-900/60 backdrop-blur-md shadow-2xl relative overflow-hidden flex flex-col items-center">
+      <div class="absolute -top-10 -left-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl"></div>
+      <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl"></div>
+
+      <span class="text-xs uppercase tracking-[0.3em] text-amber-400 font-medium mb-3">Үйлөнүү үлпөтү</span>
+      
+      <h1 class="font-serif-title text-4xl sm:text-5xl font-bold gold-gradient-text my-2 leading-tight">
+        Элнур <br>&<br> Алия
+      </h1>
+
+      <div class="w-16 h-[1px] bg-amber-400/40 my-4"></div>
+
+      <p class="text-sm text-zinc-300 font-light leading-relaxed">
+        Урматтуу кадырлуу коноктор!<br>
+        Биздин сүйүктүү балдарыбыздын үйлөнүү үлпөт тойуна чакырабыз.
+      </p>
+
+      <div class="mt-6 pt-4 border-t border-zinc-800 w-full text-xs text-amber-200/80">
+        <span class="block text-zinc-400 text-[10px] uppercase tracking-wider mb-1">Той ээлери:</span>
+        <span class="font-semibold text-sm text-amber-300">Азамат & Кымбат</span>
+      </div>
+    </section>
+
+    <!-- Date & Time Card -->
+    <section class="w-full bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 space-y-4">
+      <div class="flex items-center justify-center gap-2 text-amber-400">
+        <i data-lucide="calendar-heart" class="w-5 h-5"></i>
+        <span class="text-xs font-semibold uppercase tracking-wider">Датасы жана убактысы</span>
+      </div>
+
+      <div class="text-center">
+        <div class="font-serif-title text-3xl font-bold text-white">8 Ноября</div>
+        <div class="text-amber-400 text-lg font-medium mt-1">Саат 16:00</div>
+      </div>
+
+      <!-- Countdown Timer -->
+      <div class="pt-4 border-t border-zinc-800/60">
+        <span class="text-[11px] text-zinc-400 uppercase tracking-widest block mb-3">Тойго чейин калды:</span>
+        <div id="countdown" class="grid grid-cols-4 gap-2">
+          <div class="bg-zinc-950/80 border border-zinc-800 rounded-xl p-2">
+            <span id="days" class="block font-bold text-lg text-amber-400">00</span>
+            <span class="text-[9px] text-zinc-500 uppercase">Күн</span>
+          </div>
+          <div class="bg-zinc-950/80 border border-zinc-800 rounded-xl p-2">
+            <span id="hours" class="block font-bold text-lg text-amber-400">00</span>
+            <span class="text-[9px] text-zinc-500 uppercase">Саат</span>
+          </div>
+          <div class="bg-zinc-950/80 border border-zinc-800 rounded-xl p-2">
+            <span id="minutes" class="block font-bold text-lg text-amber-400">00</span>
+            <span class="text-[9px] text-zinc-500 uppercase">Мин</span>
+          </div>
+          <div class="bg-zinc-950/80 border border-zinc-800 rounded-xl p-2">
+            <span id="seconds" class="block font-bold text-lg text-amber-400">00</span>
+            <span class="text-[9px] text-zinc-500 uppercase">Сек</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="w-full bg-zinc-900/40 border border-zinc-800/80 rounded-2xl p-6 space-y-4">
+      <div class="flex items-center justify-center gap-2 text-amber-400">
+        <i data-lucide="map-pin" class="w-5 h-5"></i>
+        <span class="text-xs font-semibold uppercase tracking-wider">Дареги</span>
+      </div>
+
+      <div>
+        <h3 class="font-serif-title text-2xl font-bold text-white">Ресторан «Ак Сарай»</h3>
+        <p class="text-xs text-zinc-400 mt-1">Бишкек шаары</p>
+      </div>
+
+      <a href="https://2gis.kg/bishkek/search/%D0%90%D0%BA%20%D0%A1%D0%B0%D1%80%D0%B0%D0%B9" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl font-medium text-xs text-zinc-950 gold-btn hover:opacity-90 transition-opacity shadow-lg shadow-amber-500/10">
+        <i data-lucide="navigation" class="w-4 h-4"></i>
+        <span>2GIS картадан көрүү</span>
+      </a>
+    </section>
+
+    <!-- RSVP / Confirmation Form -->
+    <section class="w-full bg-zinc-900/60 border gold-border rounded-2xl p-6 text-left space-y-4">
+      <div class="text-center">
+        <h3 class="font-serif-title text-2xl font-bold text-white">Катышууну ырастоо</h3>
+        <p class="text-xs text-zinc-400 mt-1">Иш-чарага келериңизди алдын ала билдирип коюшуңузду суранабыз</p>
+      </div>
+
+      <form id="rsvpForm" class="space-y-3 pt-2">
+        <div>
+          <label class="block text-[11px] text-zinc-400 uppercase tracking-wider mb-1">Аты-жөнүңүз</label>
+          <input type="text" required placeholder="Мисалы: Асан & Айгүл" class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-xs text-zinc-100 outline-none focus:border-amber-400 transition-colors">
+        </div>
+
+        <div>
+          <label class="block text-[11px] text-zinc-400 uppercase tracking-wider mb-1">Келе аласызбы?</label>
+          <select class="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-3.5 py-2.5 text-xs text-zinc-100 outline-none focus:border-amber-400 transition-colors">
+            <option value="yes">Ооба, сөзсүз барам</option>
+            <option value="couple">Жубайым/жолдошум менен барам</option>
+            <option value="no">Келе албайм</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full py-3 bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-amber-300 font-medium text-xs rounded-xl transition-colors">
+          Жөнөтүү
+        </button>
+      </form>
+      
+      <div id="rsvpSuccess" class="hidden text-center py-4 text-xs text-emerald-400 font-medium">
+        Ырахмат! Сиздин жообуңуз кабыл алынды.
+      </div>
+    </section>
+
+    <footer class="text-[10px] text-zinc-600 uppercase tracking-widest pt-4">
+      Элнур & Алия • 2026
+    </footer>
+
+  </main>
+
+  <script>
+    // Lucide Icons Init
+    lucide.createIcons();
+
+    // Countdown Timer Logic
+    const eventDate = new Date('2026-11-08T16:00:00').getTime();
+
+    function updateTimer() {
+      const now = new Date().getTime();
+      const diff = eventDate - now;
+
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(days).padStart(2, '0');
+        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+      }
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // Form Submit Mock
+    document.getElementById('rsvpForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('rsvpForm').classList.add('hidden');
+      document.getElementById('rsvpSuccess').classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
